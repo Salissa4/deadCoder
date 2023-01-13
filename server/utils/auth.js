@@ -1,13 +1,11 @@
-//boiler plate 
-const jwt = require('jsonwebtoken');
+ const jwt = require('jsonwebtoken');
 
 const secret = process.env.JWT_SECRET;
-//decide on expiration timeframe
 const expiration = '2h';
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    let token = req.body.token || req.query.token || req.headers.authorization;
+    let token = req.headers.authorization;
 
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
