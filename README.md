@@ -15,7 +15,7 @@
 
 ## Usage
 
-- View on [Heroku]()
+- View on [Heroku](https://deadcoder.herokuapp.com/)
 ![deadCoder](./assets/demo.png)
 
 ## User Story
