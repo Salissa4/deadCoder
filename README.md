@@ -28,7 +28,7 @@ SO THAT I
 ## Acceptance Criteria
 
 ```md
-GIVEN a book search engine
+GIVEN a 
 WHEN I 
 THEN I am presented with 
 WHEN I 
