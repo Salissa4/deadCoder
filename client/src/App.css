@@ -1,7 +1,6 @@
 .App {
     text-align: center;
     background-image: url("../public/background.webp");
-    height: 1080px;
-    width: 1512px;
+    height: 100vh;
   }
   
