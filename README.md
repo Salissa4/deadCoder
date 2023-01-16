@@ -15,8 +15,8 @@
 
 ## Usage
 
-- View on [Heroku](https://deadcoder.herokuapp.com/)
-<!-- ![deadCoder](./assets/demo.png) -->
+- View on [Heroku]()
+![deadCoder](./assets/demo.png)
 
 ## User Story
 
@@ -46,12 +46,12 @@ THEN I
 
 ## Credits 
 
-- Adam Sherrill [Github](https://github.com/ajsherrill2)
-- Damien Shoemake [Github](https://github.com/Damien-Shoemake)
-- Gloriana Gonzalez [Github](https://github.com/ggggglo)
-- Salissa Hernandez [Github](https://github.com/Salissa4)
-- Shelby Hernandez [Github](https://github.com/Shernandez927)
-- Tomas Diaz [Github](https://github.com/tomasdiaz83)
+- Adam Sherrill [Github] (https://github.com/ajsherrill2)
+- Damien Shoemake [Github] (https://github.com/Damien-Shoemake)
+- Gloriana Gonzalez [Github] (https://github.com/ggggglo)
+- Salissa Hernandez [Github] (https://github.com/Salissa4)
+- Shelby Hernandez [Github] (https://github.com/Shernandez927)
+- Tomas Diaz [Github] (https://github.com/tomasdiaz83)
 
 ## Badges
 
