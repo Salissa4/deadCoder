@@ -1,7 +1,8 @@
 [
     {
-        "score": "",
-        "player": ""
+        "player_id": "",
+        "game": "",
+        "score": ""
     },
 
 ]
