@@ -15,7 +15,7 @@ const resolvers = {
       return Scores.find(params).sort({ createdAt: -1 });
     },
     score: async (parent, { scoreId }) => {
-      return Thought.findOne({ _id: scoreId });
+      return Scores.findOne({ _id: scoreId });
     },
     me: async (parent, args, context) => {
       if (context.player) {
