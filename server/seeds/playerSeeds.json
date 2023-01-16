@@ -1,0 +1,42 @@
+[
+    {
+        "username": "Kirby Cutter",
+        "avatar": "unicorn",
+        "password": "sunrise1"
+    },
+    {
+        "username": "Mr. Coco Stapler",
+        "avatar": "camel",
+        "password": "sunrise2"
+    },
+    {
+        "username": "Helix Edger",
+        "avatar": "elephant",
+        "password": "sunrise3"
+    },
+    {
+        "username": "Sheik Reamer",
+        "avatar": "lion",
+        "password": "sunrise4"
+    },
+    {
+        "username": "Fox Squeegee",
+        "avatar": "orca",
+        "password": "sunrise5"
+    },
+    {
+        "username": "Samus Machete",
+        "avatar": "rabbit",
+        "password": "sunrise6"
+    },
+    {
+        "username": "Rosalina Carpenter",
+        "avatar": "trex",
+        "password": "sunrise7"
+    },
+    {
+        "username": "Master Mummy Handsawer",
+        "avatar": "pig",
+        "password": "sunrise8"
+    }
+]
