@@ -2,8 +2,8 @@ const { Schema, model, default: mongoose } = require('mongoose');
 
 const scoresSchema = new Schema({
   // Player attached to this score instance
-  player_id: {
-     type: Schema.Types.ObjectId,
+  user_name: {
+     type: String,
      required: true,
   },
   // Name of the game that is attached to this score instance
