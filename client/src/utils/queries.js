@@ -6,12 +6,7 @@ export const QUERY_USER = gql`
     user(username: $username) {
       _id
       username
-      email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
+      avatar
     }
   }
 `;
