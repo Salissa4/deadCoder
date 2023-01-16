@@ -1,6 +1,6 @@
 const { Schema, model, default: mongoose } = require('mongoose');
 
-const ScoresSchema = new Schema({
+const scoresSchema = new Schema({
   // Player attached to this score instance
   player_id: {
      type: Schema.Types.ObjectId,
@@ -23,6 +23,6 @@ const ScoresSchema = new Schema({
   },
 });
 
-const Scores = model('Scores', ScoresSchema);
+const Scores = model('Scores', scoresSchema);
 
 module.exports = Scores;
