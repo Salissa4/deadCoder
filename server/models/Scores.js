@@ -2,7 +2,7 @@ const { Schema, model, default: mongoose } = require('mongoose');
 
 const scoresSchema = new Schema({
   // Player attached to this score instance
-  user_name: {
+  username: {
      type: String,
      required: true,
   },

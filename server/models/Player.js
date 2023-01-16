@@ -4,7 +4,7 @@ var mongoose = require("mongoose"),
   SALT_WORK_FACTOR = 10;
 
 const playerSchema = new Schema({
-  user_name: {
+  username: {
     type: String,
     required: true,
     index: { unique: true },
