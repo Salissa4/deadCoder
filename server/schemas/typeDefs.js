@@ -30,13 +30,6 @@ const typeDefs = gql`
         score(id: Int!): Score
     }
 
-    input PlayerData {
-        _id: Int!
-        username: String
-        avatar: String
-        scores: [Scores]
-    }
-
     type Mutation {
         addPlayer(username: String!, avatar: String!, ): Player
         login(username: String!, password: String!): Player
