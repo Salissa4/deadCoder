@@ -23,6 +23,12 @@ const playerSchema = new Schema({
     type: String,
     required: true,
   },
+  scores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Scores'
+    },
+  ],
 });
 
 playerSchema.pre("save", function (next) {
