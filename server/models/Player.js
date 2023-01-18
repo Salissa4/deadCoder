@@ -19,7 +19,7 @@ const playerSchema = new Schema({
     type: String,
     required: true,
   },
-  coding_lang: {
+  codingLang: {
     type: String,
     required: true,
   },
