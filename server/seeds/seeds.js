@@ -9,11 +9,9 @@ db.once('open', async () => {
       await Player.deleteMany({});
   
       await Player.create(playerSeeds);
-        //TODO what do i change thoughtAuthor to?
       for (let i = 0; i < scoreSeeds.length; i++) {
-        const { _id, thoughtAuthor } = await Score.create(scoreSeeds[i]);
+        const { _id, Player } = await Score.create(scoreSeeds[i]);
         const player = await Player.findOneAndUpdate(
-            //TODO is username:player, and addToSet score: _id correct?
             { username: player },
             {
                 $addToSet: {
