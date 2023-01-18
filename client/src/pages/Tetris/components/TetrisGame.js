@@ -1,13 +1,13 @@
 import './TetrisGame.css'
 
-import Board from './components/board'
-import GameController from './components/GameController'
-import GameStats from './components/GameStats'
-import Previews from './components/Previews'
+import Board from './Board'
+import GameController from './GameController'
+import GameStats from './GameStats'
+import Previews from './Previews'
 
-import { useBoard } from './hooks/useBoard'
-import { useGameStats} from './hooks/useGameStats'
-import { usePlayer } from './hooks/usePlayer'
+import { useBoard } from '../hooks/useBoard'
+import { useGameStats} from '../hooks/useGameStats'
+import { usePlayer } from '../hooks/usePlayer'
 
 const Tetris = ({ rows, columns, setGameOver }) => {
     const [gameStats, addLinesCleared] = useGameStats();

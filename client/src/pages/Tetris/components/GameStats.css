@@ -11,9 +11,9 @@
 }
 
 .GameStats__right {
-  right: 0;
+  right: 10;
   bottom: 0;
-  text-align: left;
+  text-align: right;
 }
 
 .GameStats .value {
