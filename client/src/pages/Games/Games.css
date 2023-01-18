@@ -1,0 +1,44 @@
+.games{
+    margin-left: 120px;
+
+}
+
+#tetris{
+    font-family: "MenloRegular";
+    color: whitesmoke;
+    width: 300px;
+    height:300px;
+    border-radius: 0;
+    border-color: #929292;
+    margin: 10px
+}
+
+#tictactoe{
+    font-family: "MenloRegular";
+    color: whitesmoke;
+    width: 300px;
+    height:300px;
+    border-radius: 0;
+    border-color: #929292;
+    margin: 10px
+}
+
+#fighter{
+    font-family: "MenloRegular";
+    color: whitesmoke;
+    width: 300px;
+    height:300px;
+    border-radius: 0;
+    border-color: #929292;
+    margin: 10px
+}
+
+#pong{
+    font-family: "MenloRegular";
+    color: whitesmoke;
+    width: 300px;
+    height:300px;
+    border-radius: 0;
+    border-color: #929292;
+    margin: 10px;
+}
