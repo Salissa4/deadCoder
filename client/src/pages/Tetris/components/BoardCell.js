@@ -1,4 +1,4 @@
-//! import some css here
+import './BoardCell.css'
 
 const BoardCell = ({ cell }) => (
     <div className={`BoardCell ${cell.className}`}>

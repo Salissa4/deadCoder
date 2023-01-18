@@ -1,4 +1,4 @@
-//! be sure to import some CSS
+import './Board.css'
 
 import BoardCell from './BoardCell'
 

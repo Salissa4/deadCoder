@@ -1,4 +1,4 @@
-//! be sure to import some css here
+import './GameStats.css'
 
 import React from "react";
 
