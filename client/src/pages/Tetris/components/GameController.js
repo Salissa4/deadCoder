@@ -1,4 +1,4 @@
-// ! be sure to import some css here
+import './GameController.css'
 
 
 import { Action, actionForKey, actionIsDrop } from '../utils/Input'

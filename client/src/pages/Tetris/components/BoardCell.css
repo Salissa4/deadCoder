@@ -1,0 +1,54 @@
+.BoardCell {
+  width: auto;
+  border-radius: 6px;
+  position: relative;
+}
+
+.tetromino {
+  border-top: 3px solid rgbwhite;
+  border-left: 3px solid rgbwhite;
+  border-bottom: 3px solwhite;
+  border-right: 3px solwhite;
+}
+
+.tetromino .Sparkle {
+  position: absolute;
+  z-index: 10;
+  width: 6px;
+  height: 6px;
+  left: -2px;
+  top: -2px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 4px 4px;
+}
+
+.tetromino.ghost {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tetromino.ghost .Sparkle {
+  opacity: 0;
+}
+
+.tetromino__i {
+  background-color: white;
+}
+.tetromino__j {
+  background-color:white;
+}
+.tetromino__l {
+  background-color: white;
+}
+.tetromino__o {
+  background-color: white;
+}
+.tetromino__s {
+  background-color:white;
+}
+.tetromino__t {
+  background-color: white;
+}
+.tetromino__z {
+  background-color: white;
+}

@@ -1,4 +1,4 @@
-//! import css here
+import './Menu.css'
 
 
 const Menu = ({ onClick }) => (

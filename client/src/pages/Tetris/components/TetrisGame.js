@@ -1,4 +1,4 @@
-//! be sure to import some css to this file 
+import './TetrisGame.css'
 
 import Board from './components/board'
 import GameController from './components/GameController'
