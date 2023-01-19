@@ -1,5 +1,4 @@
-//! Be sure to import some css here
-
+import './Preview.css'
 
 import React from 'react';
 

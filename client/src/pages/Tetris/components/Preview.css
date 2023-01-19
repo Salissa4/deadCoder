@@ -1,10 +1,10 @@
 .Preview {
   position: absolute;
-  top: 0;
-  left: 72.2vw;
-  background: rgba(0, 0, 0, 0.1);
-  border: 10px solid rgba(0, 0, 0, 0);
-  border-radius: 10px;
+  padding-top: 10vw;
+  left: 65vw;
+  background: transparent;
+  /* border: 10px solid rgba(0, 0, 0, 0);
+  border-radius: 10px; */
 }
 
 .Preview-board {
@@ -14,4 +14,26 @@
   grid-template-columns: repeat(4, 1fr);
   width: 11vw;
   height: 11vw;
+}
+
+@media only screen and (max-width: 600px) {
+  
+    .Preview {
+      position: absolute;
+      padding-top: 155vw;
+      left: 65vw;
+      background: transparent;
+      /* border: 10px solid rgba(0, 0, 0, 0);
+      border-radius: 10px; */
+    };
+
+    .Preview-board {
+      display: grid;
+      grid-gap: 2px;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      width: 11vw;
+      height: 11vw;
+    }
+  
 }

@@ -2,9 +2,23 @@
   margin: auto;
   display: grid;
   grid-gap: 2px;
-  width: 45vw;
+  width: 25vw;
   height: 50vw;
   background: transparent;
   border: 0.5px solid #929292;
   border-radius: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .Board {
+  margin: auto;
+  display: grid;
+  grid-gap: 2px;
+  width: 70vw;
+  height: 150vw;
+  background: transparent;
+  border: 0.5px solid #929292;
+  border-radius: 0px;
+  }
+
 }
