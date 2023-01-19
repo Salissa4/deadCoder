@@ -1,0 +1,1 @@
+const [ squares, setSquares ] = useState(Array(9).fill(null));
