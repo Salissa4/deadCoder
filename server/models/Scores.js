@@ -15,12 +15,12 @@ const scoresSchema = new Schema({
   score: {
     type: Number,
     required: true,
-  },
-  // When this score instance was created
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  }
+  // // When this score instance was created
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
 });
 
 const Scores = model('Scores', scoresSchema);
