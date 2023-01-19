@@ -1,0 +1,1 @@
+const [ variableWeWantToKeepTrackOf, functionToSetSaidVariable ] = useState(initialValueOfVariable);
