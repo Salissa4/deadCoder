@@ -25,12 +25,12 @@ const resolvers = {
     },
   },
   Mutation: {
-    addPlayer: async (parent, { username, password, avatar, coding_lang }) => {
+    addPlayer: async (parent, { username, password, avatar, codingLang }) => {
       const player = await Player.create({
         username,
         password,
         avatar,
-        coding_lang,
+        codingLang,
       });
       const token = signToken(player);
       return { token, player };
