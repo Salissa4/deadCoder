@@ -4,16 +4,18 @@ const typeDefs = gql`
     type Player {
         _id: ID
         username: String
+        password: String
         avatar: String
         codingLang: String
-        scores: [Scores]
+        scores: [Score]!
     }
 
-    type Scores {
+    type Score {
         _id: ID
         username: String
         game: String
-        score: Int
+        scoreValue: Int
+        createdAt: String
     }
 
     type Likes {
@@ -30,15 +32,15 @@ const typeDefs = gql`
     type Query {
         players: [Player]
         player(username: String!): Player
-        scores: [Scores]
-        score(scoreId: ID!): Scores
+        scores(username: String): [Score]
+        score(scoreId: ID!): Score
         me: Player
     }
 
     type Mutation {
         addPlayer(username: String!, password: String!, avatar: String!, codingLang: String! ): Auth
         login(username: String!, password: String!): Auth
-        addScore(game: String!, score: Int): Scores
+        addScore(game: String!, scoreValue: Int): Score
         addLike(game: String!, likeType: String): Likes
     }
 `;
