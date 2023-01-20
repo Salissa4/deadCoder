@@ -12,7 +12,7 @@ export default function Games (){
             </Button>
             <Button variant= 'outlined' className= 'games' id='tictactoe'> TICTACTOE
             </Button>
-            <Button variant= 'outlined' className= 'games' id='fighter'> FIGHTER
+            <Button variant= 'outlined' className= 'games' id='lights'> LIGHTS OUT
             </Button>
             <Button variant= 'outlined' className= 'games' id='pong'>
             PONG
