@@ -1,5 +1,5 @@
-import './App.css';
-import Board from "./Board";
+import './TicTacToe.css';
+import Board from "./BoardTicTacToe";
 import Square from "./Square";
 import {useState, useEffect} from 'react';
 
@@ -78,22 +78,22 @@ function App() {
   }
 
   return (
-    <main>
+    <main className='tictac'>
       <Board>
         {squares.map((square,index) =>
-          <Square
-            x={square==='x'?1:0}
-            o={square==='o'?1:0}
-            onClick={() => handleSquareClick(index)} />
+          <Square 
+          x={square==='x'?1:0}
+          o={square==='o'?1:0}
+          onClick={() => handleSquareClick(index)} />
         )}
-      </Board>
+      </Board >
       {!!winner && winner === 'x' && (
-        <div className="result green">
+        <div className='tictacbody'>
           You WON!
         </div>
       )}
       {!!winner && winner === 'o' && (
-        <div className="result red">
+        <div className='tictacbody'>
           You LOST!
         </div>
       )}

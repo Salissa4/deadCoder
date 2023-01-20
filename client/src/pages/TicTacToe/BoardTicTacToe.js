@@ -1,6 +1,6 @@
 function Board(props) {
   return (
-    <div className="board" {...props} />
+    <div className="boardtictac" {...props} />
   );
 }
 
