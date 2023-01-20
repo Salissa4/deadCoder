@@ -8,12 +8,13 @@ const playerSchema = new Schema({
     type: String,
     required: true,
     index: { unique: true },
+    unique: true,
     trim: true,
   },
   password: {
     type: String,
     required: true,
-    trim: true,
+    minlength: 5,
   },
   avatar: {
     type: String,
@@ -23,10 +24,11 @@ const playerSchema = new Schema({
     type: String,
     required: true,
   },
+  // Remove
   scores: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Scores'
+      ref: 'Score',
     },
   ],
 });

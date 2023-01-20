@@ -1,6 +1,6 @@
 const { Schema, model, default: mongoose } = require('mongoose');
 
-const scoresSchema = new Schema({
+const scoreSchema = new Schema({
   // Player attached to this score instance
   username: {
      type: String,
@@ -12,17 +12,17 @@ const scoresSchema = new Schema({
     required: true,
   },
   // Final score value of score instance
-  score: {
+  scoreValue: {
     type: Number,
     required: true,
-  }
-  // // When this score instance was created
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
+  },
+  // When this score instance was created
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const Scores = model('Scores', scoresSchema);
+const Score = model('Score', scoreSchema);
 
-module.exports = Scores;
+module.exports = Score;

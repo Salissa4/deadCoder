@@ -1,10 +1,12 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Player, Scores, Likes } = require("../models");
+const { Player, Score, Likes } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     players: async () => {
+      // const Playerstest = await Player.find().populate("scores")
+      // console.log(Playerstest)
       return Player.find().populate("scores");
     },
     player: async (parent, { username }) => {
@@ -12,10 +14,10 @@ const resolvers = {
     },
     scores: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Scores.find(params).sort({ createdAt: -1 });
+      return Score.find(params).sort({ createdAt: -1 });
     },
     score: async (parent, { scoreId }) => {
-      return Scores.findOne({ _id: scoreId });
+      return Score.findOne({ _id: scoreId });
     },
     me: async (parent, args, context) => {
       if (context.player) {
@@ -52,12 +54,12 @@ const resolvers = {
 
       return { token, player };
     },
-    addScore: async (parent, { game, score }, context) => {
+    addScore: async (parent, { game, scoreValue }, context) => {
       if (context.player) {
-        const newScore = await Scores.create({
+        const newScore = await Score.create({
           username: context.player.username,
           game,
-          score,
+          scoreValue,
         });
 
         await Player.findOneAndUpdate(

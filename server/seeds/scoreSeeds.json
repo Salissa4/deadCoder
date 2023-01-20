@@ -2,86 +2,86 @@
     {
         "username": "Kirby Cutter",
         "game": "NinjaStriker",
-        "score": "45290"
+        "scoreValue": "45290"
     },
     {
         "username": "Kirby Cutter",
         "game": "Tetris",
-        "score": "48"
+        "scoreValue": "48"
     },
     {
         "username": "Kirby Cutter",
         "game": "TicTacToe",
-        "score": "382"
+        "scoreValue": "382"
     },
     {
         "username": "Helix Edger",
         "game": "NinjaStriker",
-        "score": "37290"
+        "scoreValue": "37290"
     },
     {
         "username": "Helix Edger",
         "game": "Tetris",
-        "score": "82"
+        "scoreValue": "82"
     },
     {
         "username": "Helix Edger",
         "game": "TicTacToe",
-        "score": "73"
+        "scoreValue": "73"
     },
     {
         "username": "Sheik Reamer",
         "game": "NinjaStriker",
-        "score": "28467"
+        "scoreValue": "28467"
     },
     {
         "username": "Sheik Reamer",
         "game": "Pong",
-        "score": "22"
+        "scoreValue": "22"
     },
     {
         "username": "Sheik Reamer",
         "game": "TicTacToe",
-        "score": "35"
+        "scoreValue": "35"
     },
     {
         "username": "Fox Squeegee",
         "game": "Pong",
-        "score": "54"
+        "scoreValue": "54"
     },
     {
         "username": "Fox Squeegee",
         "game": "Tetris",
-        "score": "46"
+        "scoreValue": "46"
     },
     {
         "username": "Fox Squeegee",
         "game": "TicTacToe",
-        "score": "17"
+        "scoreValue": "17"
     },
     {
         "username": "Rosalina Carpenter",
         "game": "TicTacToe",
-        "score": "4"
+        "scoreValue": "4"
     },
     {
         "username": "Rosalina Carpenter",
         "game": "NinjaStriker",
-        "score": "17492"
+        "scoreValue": "17492"
     },
     {
         "username": "Rosalina Carpenter",
         "game": "Pong",
-        "score": "38"
+        "scoreValue": "38"
     },
     {
         "username": "Rosalina Carpenter",
         "game": "Tetris",
-        "score": "73"
+        "scoreValue": "73"
     },
     {
         "username": "Master Mummy Handsawer",
         "game":"Pong",
-        "score": "64"
+        "scoreValue": "64"
     }
 ]
