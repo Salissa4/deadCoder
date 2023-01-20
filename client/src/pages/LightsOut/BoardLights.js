@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import './Board.css';
-import Cell from "./Cell";
+import './BoardLights.css';
+import Cell from "./CellLights";
 
 
 function Board(props) {
@@ -77,7 +77,7 @@ function Board(props) {
         });
 
     return(
-        <div className="Board">
+        <div className="BoardLights">
            {hasWon() ? <div className="Board-hasWon">GO BACK</div> : gridDisplay }
         </div>
     )

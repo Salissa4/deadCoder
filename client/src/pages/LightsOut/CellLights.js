@@ -1,5 +1,5 @@
 import React from "react";
-import './Cell.css';
+import './CellLights.css';
 
 
 function Cell(props){
