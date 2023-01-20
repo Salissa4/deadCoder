@@ -1,7 +1,5 @@
-var mongoose = require("mongoose"),
-  Schema = mongoose.Schema,
-  bcrypt = require("bcrypt"),
-  SALT_WORK_FACTOR = 10;
+const { Schema, model, default: mongoose } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const playerSchema = new Schema({
   username: {
@@ -33,33 +31,19 @@ const playerSchema = new Schema({
   ],
 });
 
-playerSchema.pre("save", function (next) {
-  let player = this;
-  // only hash the password if it has been modified (or is new)
-  if (!player.isModified("password")) return next();
+playerSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
 
-  // generate a salt
-  bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
-    if (err) return next(err);
-
-    // hash the password along with our new salt
-    bcrypt.hash(player.password, salt, function (err, hash) {
-      if (err) return next(err);
-
-      // override the cleartext password with the hashed one
-      player.password = hash;
-      next();
-    });
-  });
+  next();
 });
 
-playerSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-      if (err) return cb(err);
-      cb(null, isMatch);
-  });
+playerSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
 };
 
-const Player = mongoose.model("Player", playerSchema);
+const Player = model("Player", playerSchema);
 
 module.exports = Player;

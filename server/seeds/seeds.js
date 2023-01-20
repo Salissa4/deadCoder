@@ -3,17 +3,6 @@ const { Player, Score } = require ('../models');
 const playerSeeds = require ('./playerSeeds.json');
 const scoreSeeds = require ('./scoreSeeds.json');
 
-// db.once('open', async () => {
-//   await Player.deleteMany({}); //This deletes all players, so is kind of scary...
-//   await Player.create(playerSeeds);
-
-//   await Score.deleteMany({}); //This deletes all score, so again is kind of scary...
-//   await Score.create(scoreSeeds);
-
-//   console.log('all done!');
-//   process.exit(0);
-// });
-
 db.once('open', async () => {
   try {
     await Score.deleteMany({});
