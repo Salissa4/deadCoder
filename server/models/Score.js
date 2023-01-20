@@ -1,4 +1,5 @@
 const { Schema, model, default: mongoose } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const scoreSchema = new Schema({
   // Player attached to this score instance
@@ -20,6 +21,7 @@ const scoreSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
 });
 
