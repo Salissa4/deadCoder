@@ -39,7 +39,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addPlayer(username: String!, password: String!, avatar: String!, codingLang: String! ): Auth
+        addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
         addScore(game: String!, scoreValue: Int): Score
         addLike(game: String!, likeType: String): Likes
