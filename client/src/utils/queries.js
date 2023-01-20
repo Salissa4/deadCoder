@@ -42,4 +42,5 @@ export const QUERY_SINGLE_SCORE = gql`
   }
 `;
 
-export const QUERY_LIKES = gql``; // Figure this out later, need to add "likes" to resolvers and typeDefs
+// Figure this out later, need to add "likes" to resolvers and typeDefs
+// export const QUERY_LIKES = gql``; 
