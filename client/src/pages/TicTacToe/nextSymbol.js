@@ -1,1 +1,0 @@
-const nextSymbol = isXNext ? "X" : "O";
