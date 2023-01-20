@@ -1,0 +1,28 @@
+.Cell-on {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 20%;
+
+    background-color: rgb(18, 231, 231);
+
+    border: none;
+    margin: 20px;
+
+    box-shadow: 
+    0 0 22px #D18A68,
+    0 0 42px #D18A68
+    
+
+}
+
+.Cell-off {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    
+    border: 0.5px;
+    margin: 20px;
+    background-color: #B8A6BB;
+    opacity: 70%
+}
