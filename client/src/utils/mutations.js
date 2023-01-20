@@ -1,32 +1,43 @@
-//TODO double check login user and add user mutation is correct
 import { gql } from '@apollo/client';
 
-export const LOGIN_USER = gql`
-  mutation login($username: String!, $password: String!, $avatar: String) {
+export const LOGIN_PLAYER = gql`
+  mutation login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
       token
-      user {
+      player {
         _id
         username
+        codingLang
+        avatar
       }
     }
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, password: $password, $avatar: String) {
+export const ADD_PLAYER = gql`
+  mutation addPlayer($username: String!, $password: String!, $avatar: String!, $codingLang: String!) {
+    addPlayer(username: $username, password: $password, avatar: $avatar, codingLang: $codingLang) {
       token
-      user {
+      player {
         _id
         username
+        avatar
+        codingLang
       }
     }
   }
 `;
 
-//TODO need highscore model to complete
-export const HighScore = gql`
-  mutation addHighScore
-  ()
+export const ADD_SCORE = gql`
+  mutation addScore($game: String!, $scoreValue: Int) {
+    addScore(game: $game, scoreValue: $scoreValue) {
+      _id
+      username
+      game
+      scoreValue
+      createdAt
+    }
+  }
 `
+
+// export const ADD_LIKE = gql``;
