@@ -1,32 +1,39 @@
-body{
-  background-color: #123;
+.tictacbody{
+  background-color: transparent;
   color:#fff;
 }
-main{
+
+.tictac{
   width: 300px;
-  margin: 50px auto 0;
+  /* margin: 50px auto 0; */
 }
-div.board{
+div.boardtictac{
   display: grid;
-  border: 2px solid #fff;
+  border: 0.5px solid transparent;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  padding-top: 100px;
+  padding-left: 470px;
 }
+
 div.square{
-  width: 100px;
-  height: 100px;
-  border: 2px solid #fff;
+  width: 200px;
+  height: 200px;
+  border: 0.5px solid #929292;
   box-sizing: border-box;
   font-size: 4rem;
   text-align: center;
 }
+
+.square.x
 div.result{
   font-size: 2rem;
   padding: 10px;
+  
 }
-div.result.green{
+/* div.result.green{
   background-color: #5a5;
 }
 div.result.red{
   background-color: #a55;
-}
+} */
