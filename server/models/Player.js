@@ -20,9 +20,7 @@ const playerSchema = new Schema({
   },
   codingLang: {
     type: String,
-    required: true,
   },
-  // Remove
   scores: [
     {
       type: Schema.Types.ObjectId,

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Player, Score, Likes } = require("../models");
+const { Player, Score, Like } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -17,6 +17,7 @@ const resolvers = {
     score: async (parent, { scoreId }) => {
       return Score.findOne({ _id: scoreId });
     },
+    // likes: async () => {},
     me: async (parent, args, context) => {
       if (context.player) {
         return Player.findOne({ _id: context.player._id }).populate("scores");
@@ -70,17 +71,17 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    addLike: async (parent, { game, likeType }, context) => {
-        if (context.player) {
-          const like = await Likes.create({
-            game,
-            likeType,
-          })
+    // addLike: async (parent, { game, likeType }, context) => {
+    //     if (context.player) {
+    //       const like = await Like.create({
+    //         game,
+    //         likeType,
+    //       })
 
-          return like;
-        }
-        throw new AuthenticationError('You need to be logged in!');
-      },
+    //       return like;
+    //     }
+    //     throw new AuthenticationError('You need to be logged in!');
+    //   },
   },
 };
 

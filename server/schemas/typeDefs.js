@@ -18,7 +18,7 @@ const typeDefs = gql`
         createdAt: String
     }
 
-    type Likes {
+    type Like {
         _id: ID
         game: String
         likeType: String
@@ -34,11 +34,12 @@ const typeDefs = gql`
         player(username: String!): Player
         scores(username: String): [Score]
         score(scoreId: ID!): Score
+        likes
         me: Player
     }
 
     type Mutation {
-        addPlayer(username: String!, password: String!, avatar: String!, codingLang: String! ): Auth
+        addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
         addScore(game: String!, scoreValue: Int): Score
         addLike(game: String!, likeType: String): Likes

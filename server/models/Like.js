@@ -1,6 +1,6 @@
 const { Schema, model, default: mongoose } = require('mongoose');
 
-const likesSchema = new Schema({
+const likeSchema = new Schema({
   // Name of the game that is attached to this likes instance
   game: {
     type: String,
@@ -9,10 +9,10 @@ const likesSchema = new Schema({
   // Final score value of score instance
   likeType: {
     type: String,
-    enum: ['like', 'dislike'],
+    required: true,
   },
 });
 
-const Likes = model('Likes', likesSchema);
+const Like = model('like', likeSchema);
 
-module.exports = Likes;
+module.exports = Like;
