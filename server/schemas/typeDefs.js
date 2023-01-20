@@ -18,7 +18,7 @@ const typeDefs = gql`
         createdAt: String
     }
 
-    type Likes {
+    type Like {
         _id: ID
         game: String
         likeType: String
@@ -34,6 +34,7 @@ const typeDefs = gql`
         player(username: String!): Player
         scores(username: String): [Score]
         score(scoreId: ID!): Score
+        likes
         me: Player
     }
 

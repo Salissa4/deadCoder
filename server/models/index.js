@@ -1,5 +1,5 @@
 const Player = require('./Player');
 const Score = require('./Score');
-const Likes = require('./Likes');
+const Like = require('./Like');
 
-module.exports = { Player, Score, Likes };
+module.exports = { Player, Score, Like };
