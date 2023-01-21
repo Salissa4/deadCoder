@@ -21,14 +21,18 @@ const playerSchema = new Schema({
   codingLang: {
     type: String,
   },
-  pongScores: [{
-    type: Schema.Types.ObjectId,
-    ref: 'PongScore'
-  }],
-  ticTacToeScores: [{
-    type: Schema.Types.ObjectId,
-    ref: 'TicTacToeScore'
-  }]
+  pongScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'PongScore'
+    }
+  ],
+  ticTacToeScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'TicTacToeScore'
+    }
+  ]
 });
 
 playerSchema.pre('save', async function (next) {

@@ -27,7 +27,7 @@ db.once('open', async () => {
         { _id: randPlayerID },
         {
           $addToSet: {
-            pongScores: newScore,
+            pongScores: newScore._id,
           },
         }
       );
@@ -48,7 +48,7 @@ db.once('open', async () => {
         { _id: randPlayerID },
         {
           $addToSet: {
-            ticTacToeScores: newScore,
+            ticTacToeScores: newScore._id,
           },
         }
       );

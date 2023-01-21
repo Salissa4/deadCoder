@@ -13,14 +13,14 @@ const typeDefs = gql`
 
     type PongScore {
         _id: ID
-        userId: ID
+        userId: Player
         pongScoreValue: Int
         createdAt: String
     }
 
     type TicTacToeScore {
         _id: ID
-        userId: ID
+        userId: Player
         ticTacToeScoreValue: Int
         createdAt: String
     }
@@ -40,9 +40,9 @@ const typeDefs = gql`
         allPlayers: [Player]
         player(_id: ID!): Player
         allPongScores: [PongScore]
-        pongScore(_id: ID!): [PongScore]
-        ticTacToeScores: [TicTacToeScore]
-        ticTacToeScore(scoreId: ID!): [TicTacToeScore]
+        # pongScore(_id: ID!): [PongScore]
+        allTicTacToeScores: [TicTacToeScore]
+        # ticTacToeScore(scoreId: ID!): [TicTacToeScore]
         # likes
         me: Player
     }
@@ -50,8 +50,8 @@ const typeDefs = gql`
     type Mutation {
         addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
-        addPongScore(userId: ID!, scoreValue: Int!): PongScore
-        addTicTacToeScore(userId: ID!, scoreValue: Int!): TicTacToeScore
+        addPongScore(userId: ID!, score: Int!): PongScore
+        addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
         # addLike(game: String!, likeType: String): Like
     }
 `;
