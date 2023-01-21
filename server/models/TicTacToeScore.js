@@ -4,13 +4,13 @@ const Player = require('./Player');
 
 const ticTacToeScoreSchema = new Schema({
   // Player attached to this score instance
-  userid: {
+  userId: {
      type: mongoose.Schema.Types.ObjectId,
-     ref: Player,
+     ref: 'Player',
      required: true,
   },
   // Final score value of score instance
-  scoreValue: {
+  ticTacToeScoreValue: {
     type: Number,
     required: true,
   },

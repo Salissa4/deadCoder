@@ -5,13 +5,13 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    players: async () => {
-      return Player.find();
-      // return Player.find().populate("scoreValue");
+    allPlayers: async () => {
+      return Player.find().populate('pongScores')
     },
     player: async (parent, { _id }) => {
       return Player.findOne({ _id });
     },
+    allPongScores: 
     // scores: async () => {
     //   //const params = username ? { username } : {};
     //   return Score.find().sort({ createdAt: -1 });

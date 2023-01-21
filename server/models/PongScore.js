@@ -10,7 +10,7 @@ const pongScoreSchema = new Schema({
      required: true,
   },
   // Final score value of score instance
-  scoreValue: {
+  pongScoreValue: {
     type: Number,
     required: true,
   },

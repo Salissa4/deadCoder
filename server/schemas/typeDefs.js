@@ -14,14 +14,14 @@ const typeDefs = gql`
     type PongScore {
         _id: ID
         userId: ID
-        scoreValue: Int
+        pongScoreValue: Int
         createdAt: String
     }
 
     type TicTacToeScore {
         _id: ID
         userId: ID
-        scoreValue: Int
+        ticTacToeScoreValue: Int
         createdAt: String
     }
 
@@ -37,9 +37,9 @@ const typeDefs = gql`
     }
 
     type Query {
-        players: [Player]
+        allPlayers: [Player]
         player(_id: ID!): Player
-        pongScores: [PongScore]
+        allPongScores: [PongScore]
         pongScore(_id: ID!): [PongScore]
         ticTacToeScores: [TicTacToeScore]
         ticTacToeScore(scoreId: ID!): [TicTacToeScore]

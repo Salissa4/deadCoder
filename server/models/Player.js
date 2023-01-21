@@ -23,11 +23,11 @@ const playerSchema = new Schema({
   },
   pongScores: [{
     type: Schema.Types.ObjectId,
-    ref: 'pongScore'
+    ref: 'PongScore'
   }],
   ticTacToeScores: [{
     type: Schema.Types.ObjectId,
-    ref: 'ticTacToeScore'
+    ref: 'TicTacToeScore'
   }]
 });
 
