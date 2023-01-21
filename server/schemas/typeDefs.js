@@ -18,11 +18,11 @@ const typeDefs = gql`
         createdAt: String
     }
 
-    type Like {
-        _id: ID
-        game: String
-        likeType: String
-    }
+    # type Like {
+    #     _id: ID
+    #     game: String
+    #     likeType: String
+    # }
 
     type Auth {
         token: ID!
@@ -34,7 +34,7 @@ const typeDefs = gql`
         player(username: String!): Player
         scores(username: String): [Score]
         score(scoreId: ID!): Score
-        likes
+        # likes
         me: Player
     }
 
@@ -42,7 +42,7 @@ const typeDefs = gql`
         addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
         addScore(game: String!, scoreValue: Int): Score
-        addLike(game: String!, likeType: String): Likes
+        # addLike(game: String!, likeType: String): Like
     }
 `;
 module.exports = typeDefs;
