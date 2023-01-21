@@ -50,44 +50,48 @@ function App() {
       return
     }
 
-    const putComputerAt = index => {
+    const putComputerAt = index => {     
       let newSquares = squares;
       newSquares[index] = 'o';
       setSquares([...newSquares]);
     };
 
     if (isComputerTurn && !winner) {
+      let timer = 1000;
 
       const winingLines = linesThatAre('o', 'o', null);
       if (winingLines.length > 0) {
         const winIndex = winingLines[0].filter(index => squares[index] === null)[0];
-        putComputerAt(winIndex);
+        setTimeout(()=>{putComputerAt(winIndex)},timer);
         return;
       }
 
       const linesToBlock = linesThatAre('x', 'x', null);
       if (linesToBlock.length > 0) {
         const blockIndex = linesToBlock[0].filter(index => squares[index] === null)[0];
-        putComputerAt(blockIndex);
+        setTimeout(()=>{putComputerAt(blockIndex)},timer);
         return;
       }
 
       const linesToContinue = linesThatAre('o', null, null);
       if (linesToContinue.length > 0) {
-        putComputerAt(linesToContinue[0].filter(index => squares[index] === null)[0]);
+        const continueIndex = linesToContinue[0].filter(index => squares[index] === null)[0]
+        setTimeout(()=>{putComputerAt(continueIndex)},timer);
         return;
       }
 
       const randomIndex = emptyIndexes[ Math.ceil(Math.random()*emptyIndexes.length) ];
-      putComputerAt(randomIndex);
+      setTimeout(()=>{putComputerAt(randomIndex)},timer);
     }
   }, [squares], [winCount], [loseCount]);
 
-  function handleSquareClick(index) {
+  const handleSquareClick = (index) => {
     if (winner) {
       return
     }
+    
     const isPlayerTurn = squares.filter(square => square !== null).length % 2 === 0;
+    
     if (isPlayerTurn) {
       let newSquares = squares;
       newSquares[index] = 'x';
