@@ -57,7 +57,7 @@ function App() {
     };
 
     if (isComputerTurn && !winner) {
-      let timer = 2000;
+      let timer = 1000;
 
       const winingLines = linesThatAre('o', 'o', null);
       if (winingLines.length > 0) {
