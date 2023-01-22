@@ -115,10 +115,11 @@ function App() {
     <main className='tictac'>
       <Board>
         {squares.map((square,index) =>
-          <Square 
+          <Square
             x = {square==='x' ? 1 : 0}
             o = {square==='o' ? 1 : 0}
             onClick={() => handleSquareClick(index)} 
+            key={index}
           />
         )}
       </Board >
