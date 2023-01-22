@@ -7,14 +7,21 @@ const typeDefs = gql`
         password: String
         avatar: String
         codingLang: String
-        scores: [Score]!
+        pongScores: [PongScore]
+        ticTacToeScores: [TicTacToeScore]
     }
 
-    type Score {
+    type PongScore {
         _id: ID
-        username: String
-        game: String
-        scoreValue: Int
+        userId: Player
+        pongScoreValue: Int
+        createdAt: String
+    }
+
+    type TicTacToeScore {
+        _id: ID
+        userId: Player
+        ticTacToeScoreValue: Int
         createdAt: String
     }
 
@@ -30,10 +37,10 @@ const typeDefs = gql`
     }
 
     type Query {
-        players: [Player]
-        player(username: String!): Player
-        scores(username: String): [Score]
-        score(scoreId: ID!): Score
+        allPlayers: [Player]
+        player(_id: ID!): Player
+        allPongScores: [PongScore]
+        allTicTacToeScores: [TicTacToeScore]
         # likes
         me: Player
     }
@@ -41,7 +48,8 @@ const typeDefs = gql`
     type Mutation {
         addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
-        addScore(game: String!, scoreValue: Int): Score
+        addPongScore(userId: ID!, score: Int!): PongScore
+        addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
         # addLike(game: String!, likeType: String): Like
     }
 `;

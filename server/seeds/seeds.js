@@ -1,22 +1,54 @@
 const db = require('../config/connection');
-const { Player, Score } = require ('../models');
+const { Player, PongScore, TicTacToeScore } = require ('../models');
 const playerSeeds = require ('./playerSeeds.json');
-const scoreSeeds = require ('./scoreSeeds.json');
+const pongSeeds = require('./pongScoreSeeds.json')
+const ticTacToeSeeds = require('./ticTacToeScoreSeeds.json')
 
 db.once('open', async () => {
   try {
-    await Score.deleteMany({});
     await Player.deleteMany({});
+    await PongScore.deleteMany({});
+    await TicTacToeScore.deleteMany({});
 
     await Player.create(playerSeeds);
 
-    for (let i = 0; i < scoreSeeds.length; i++) {
-      const { _id, username } = await Score.create(scoreSeeds[i]);
-      const player = await Player.findOneAndUpdate(
-        { username: username },
+    for (let i = 0; i < pongSeeds.length; i++) {
+      const randPlayer = await Player.aggregate([{ $sample: { size: 1 }}])
+      const randPlayerID = randPlayer[0]._id
+
+      const newScore = await PongScore.create(
+        {
+          userId: randPlayerID,
+          pongScoreValue: pongSeeds[i].scoreValue
+        }
+      );
+
+      await Player.findOneAndUpdate(
+        { _id: randPlayerID },
         {
           $addToSet: {
-            scores: _id,
+            pongScores: newScore._id,
+          },
+        }
+      );
+    }
+
+    for (let i = 0; i < ticTacToeSeeds.length; i++) {
+      const randPlayer = await Player.aggregate([{ $sample: { size: 1 }}])
+      const randPlayerID = randPlayer[0]._id
+
+      const newScore = await TicTacToeScore.create(
+        {
+          userId: randPlayerID,
+          ticTacToeScoreValue: ticTacToeSeeds[i].scoreValue
+        }
+      );
+
+      await Player.findOneAndUpdate(
+        { _id: randPlayerID },
+        {
+          $addToSet: {
+            ticTacToeScores: newScore._id,
           },
         }
       );
