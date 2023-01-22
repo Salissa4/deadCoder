@@ -8,7 +8,8 @@ import Games from "./pages/Games/Games";
 import Tetris from "./pages/Tetris/Tetris";
 import Avatars from "./pages/Avatars/Avatars";
 import Lights from "./pages/LightsOut/lightsOut";
-import TicTacToe from "./pages/TicTacToe/TicTacToe"
+import TicTacToe from "./pages/TicTacToe/TicTacToe";
+import Dashboard from "./pages/Dashboard";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
@@ -57,6 +58,7 @@ function App() {
           <Route path="/games/tetris" element={<Tetris />} />
           <Route path="/games/lights-out" element={<Lights />} />
           <Route path="/games/tictactoe" element={<TicTacToe />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </Router>
