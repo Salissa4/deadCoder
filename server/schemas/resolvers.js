@@ -1,23 +1,24 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Player, Score/*, Like*/ } = require("../models");
+const { Player, PongScore, TicTacToeScore, TetrisScore } = require('../models')
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    players: async () => {
-      return Player.find().populate("scores");
+    allPlayers: async () => {
+      return Player.find().populate('pongScores').populate('ticTacToeScores').populate('tetrisScores');
     },
-    player: async (parent, { username }) => {
-      return Player.findOne({ username }).populate("scores");
+    player: async (parent, { _id }) => {
+      return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores');
     },
-    scores: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Score.find(params).sort({ createdAt: -1 });
+    allPongScores: async () => {
+      return PongScore.find({}).sort({ createdAt: -1 }).populate('userId')
     },
-    score: async (parent, { scoreId }) => {
-      return Score.findOne({ _id: scoreId });
+    allTicTacToeScores: async () => {
+      return TicTacToeScore.find({}).sort({ createdAt: -1 }).populate('userId')
     },
-    // likes: async () => {},
+    allTetrisScores: async () => {
+      return TetrisScore.find({}).sort({ createdAt: -1 }).populate('userId')
+    },
     me: async (parent, args, context) => {
       if (context.player) {
         return Player.findOne({ _id: context.player._id }).populate("scores");
@@ -25,6 +26,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
   },
+
   Mutation: {
     addPlayer: async (parent, { username, password, avatar, codingLang }) => {
       const player = await Player.create({
@@ -36,6 +38,7 @@ const resolvers = {
       const token = signToken(player);
       return { token, player };
     },
+
     login: async (parent, { username, password }) => {
       const player = await Player.findOne({ username });
 
@@ -53,17 +56,69 @@ const resolvers = {
 
       return { token, player };
     },
-    addScore: async (parent, { game, scoreValue }, context) => {
-      if (context.player) {
-        const newScore = await Score.create({
-          username: context.player.username,
-          game,
-          scoreValue,
-        });
+
+    addPongScore: async (parent, { userId, score }) => {
+      if (userId) {
+        const newScore = await PongScore.create(
+          {
+            userId: userId,
+            pongScoreValue: score
+          }
+        );
 
         await Player.findOneAndUpdate(
-          { _id: context.player._id },
-          { $addToSet: { scores: newScore._id } }
+          { _id: userId },
+          { 
+            $addToSet: { 
+              pongScores: newScore._id,
+            } 
+          }
+        );
+
+        return newScore;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    addTetrisScore: async (parent, { userId, score }) => {
+      if (userId) {
+        const newScore = await TetrisScore.create(
+          {
+            userId: userId,
+            tetrisScoreValue: score
+          }
+        );
+
+        await Player.findOneAndUpdate(
+          { _id: userId },
+          { 
+            $addToSet: { 
+              tetrisScores: newScore._id,
+            } 
+          }
+        );
+
+        return newScore;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    addTicTacToeScore: async (parent, { userId, score }) => {
+      if (userId) {
+        const newScore = await TicTacToeScore.create(
+          {
+            userId: userId,
+            ticTacToeScoreValue: score
+          }
+        );
+
+        await Player.findOneAndUpdate(
+          { _id: userId },
+          { 
+            $addToSet: { 
+              ticTacToeScores: newScore._id,
+            } 
+          }
         );
 
         return newScore;
@@ -71,6 +126,7 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
     // addLike: async (parent, { game, likeType }, context) => {
     //     if (context.player) {
     //       const like = await Like.create({
@@ -83,6 +139,9 @@ const resolvers = {
     //     throw new AuthenticationError('You need to be logged in!');
     //   },
   },
+
+
+
 };
 
 module.exports = resolvers;

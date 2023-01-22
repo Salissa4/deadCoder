@@ -21,11 +21,23 @@ const playerSchema = new Schema({
   codingLang: {
     type: String,
   },
-  scores: [
+  pongScores: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Score',
-    },
+      ref: 'PongScore'
+    }
+  ],
+  tetrisScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'TetrisScore'
+    }
+  ],
+  ticTacToeScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'TicTacToeScore'
+    }
   ],
 });
 
