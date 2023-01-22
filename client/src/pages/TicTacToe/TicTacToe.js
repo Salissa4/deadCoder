@@ -14,62 +14,84 @@ const lines = [
 function App() {
   const [squares, setSquares] = useState(defaultSquares());
   const [winner,setWinner] = useState(null);
+  const [winCount, setWinCount] = useState(0);
+  const [loseCount, setLoseCount] = useState(0);
 
   useEffect(() => {
     const isComputerTurn = squares.filter(square => square !== null).length % 2 === 1;
+
     const linesThatAre = (a,b,c) => {
       return lines.filter(squareIndexes => {
         const squareValues = squareIndexes.map(index => squares[index]);
         return JSON.stringify([a,b,c].sort()) === JSON.stringify(squareValues.sort());
       });
     };
+
     const emptyIndexes = squares
       .map((square,index) => square === null ? index : null)
       .filter(val => val !== null);
+    
     const playerWon = linesThatAre('x', 'x', 'x').length > 0;
     const computerWon = linesThatAre('o', 'o', 'o').length > 0;
+    const draw = emptyIndexes.length === 0;
+
     if (playerWon) {
+      setWinCount(winCount+1)
       setWinner('x');
+      return
     }
     if (computerWon) {
+      setLoseCount(loseCount+1)
       setWinner('o');
+      return
     }
-    const putComputerAt = index => {
+    if(draw){
+      setWinner('draw')
+      return
+    }
+
+    const putComputerAt = index => {     
       let newSquares = squares;
       newSquares[index] = 'o';
       setSquares([...newSquares]);
     };
-    if (isComputerTurn) {
+
+    if (isComputerTurn && !winner) {
+      let timer = 1000;
 
       const winingLines = linesThatAre('o', 'o', null);
       if (winingLines.length > 0) {
         const winIndex = winingLines[0].filter(index => squares[index] === null)[0];
-        putComputerAt(winIndex);
+        setTimeout(()=>{putComputerAt(winIndex)},timer);
         return;
       }
 
       const linesToBlock = linesThatAre('x', 'x', null);
       if (linesToBlock.length > 0) {
         const blockIndex = linesToBlock[0].filter(index => squares[index] === null)[0];
-        putComputerAt(blockIndex);
+        setTimeout(()=>{putComputerAt(blockIndex)},timer);
         return;
       }
 
       const linesToContinue = linesThatAre('o', null, null);
       if (linesToContinue.length > 0) {
-        putComputerAt(linesToContinue[0].filter(index => squares[index] === null)[0]);
+        const continueIndex = linesToContinue[0].filter(index => squares[index] === null)[0]
+        setTimeout(()=>{putComputerAt(continueIndex)},timer);
         return;
       }
 
       const randomIndex = emptyIndexes[ Math.ceil(Math.random()*emptyIndexes.length) ];
-      putComputerAt(randomIndex);
+      setTimeout(()=>{putComputerAt(randomIndex)},timer);
     }
-  }, [squares]);
+  }, [squares], [winCount], [loseCount]);
 
-
-
-  function handleSquareClick(index) {
+  const handleSquareClick = (index) => {
+    if (winner) {
+      return
+    }
+    
     const isPlayerTurn = squares.filter(square => square !== null).length % 2 === 0;
+    
     if (isPlayerTurn) {
       let newSquares = squares;
       newSquares[index] = 'x';
@@ -77,27 +99,53 @@ function App() {
     }
   }
 
+  function handleReplay() {
+    setWinner(null);
+    setSquares(defaultSquares);
+  }
+
+  function endSession() {
+    const score = (winCount - loseCount) * 100
+    console.log(score)
+    //TODO: Send score to server
+    //TODO: Route back to homescreen
+  }
+
   return (
     <main className='tictac'>
       <Board>
         {squares.map((square,index) =>
-          <Square 
-          x={square==='x'?1:0}
-          o={square==='o'?1:0}
-          onClick={() => handleSquareClick(index)} />
+          <Square
+            x = {square==='x' ? 1 : 0}
+            o = {square==='o' ? 1 : 0}
+            onClick={() => handleSquareClick(index)} 
+            key={index}
+          />
         )}
       </Board >
+      <div>
+        <div>Wins: {winCount}</div>
+        <div>Losses: {loseCount}</div>
+        <div onClick={()=>endSession()}>Score it and Play a New Game</div>
+      </div>
       {!!winner && winner === 'x' && (
         <div className='tictacbody'>
           You WON!
+          <div onClick={()=>handleReplay()}>Play Again?</div>
         </div>
       )}
       {!!winner && winner === 'o' && (
         <div className='tictacbody'>
           You LOST!
+          <div onClick={()=>handleReplay()}>Play Again?</div>
         </div>
       )}
-
+      {!!winner && winner === 'draw' && (
+        <div className='tictacbody'>
+          DRAW!
+          <div onClick={()=>handleReplay()}>Play Again?</div>
+        </div>
+      )}
     </main>
   );
 }
