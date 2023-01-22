@@ -2,7 +2,7 @@
  
 ## Description
 
-Welcome to deadCoder [ ded - koh - der ]. deadCoder is an app that allows you to play Tetris, Pong, Ninja Striker, or TicTacToe. Player scores are tracked, and you, the player are able to like the games you enjoy the most. 
+Welcome to deadCoder [ ded - koh - der ]. deadCoder is an app that allows you to play Tetris, Lights Out, Pong, or TicTacToe. Player scores are tracked, and you, the player are able to like the games you enjoy the most. 
 
 ## Table of Contents
 - [Usage](#usage)
@@ -23,7 +23,7 @@ Welcome to deadCoder [ ded - koh - der ]. deadCoder is an app that allows you to
 ```md
 AS A PLAYER
 I WANT to be able to sign up, and select my avatar
-SO THAT I can choose to play Tetris, Ninja Striker, Pong or TicTacToe
+SO THAT I can choose to play Tetris, Lights Out, Pong or TicTacToe
 ```
 ## Acceptance Criteria
 
@@ -37,7 +37,7 @@ THEN I am presented with the option to choose my avatar
 WHEN I select my avatar
 THEN I am asked a question based on the coding language selected
 WHEN I answer the question correctly
-THEN am able to view Tetris, Ninja Striker, Pong or TicTacToe displaying highscores and likes
+THEN am able to view Tetris, Lights Out, Pong or TicTacToe displaying highscores and likes
 WHEN I click the game of my choice
 THEN I am able to play the game
 ```
