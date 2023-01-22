@@ -1,46 +1,95 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PLAYER = gql`
-  query Player($username: String!) {
-    player(username: $username) {
+export const QUERY_ALL_PLAYERS = gql`
+  query AllPlayers {
+    allPlayers {
       _id
       username
       avatar
       codingLang
-      scores {
+      ticTacToeScores {
         _id
-        username
-        game
-        scoreValue
+        ticTacToeScoreValue
+        createdAt
+      }
+      pongScores {
+        _id
+        pongScoreValue
+        createdAt
+      }
+      tetrisScores {
+        _id
+        tetrisScoreValue
         createdAt
       }
     }
   }
 `;
 
-export const QUERY_SCORES = gql`
-  query getScores {
-    scores {
+export const QUERY_PLAYER = gql`
+  query Player($id: ID!) {
+    player(_id: $id) {
       _id
       username
-      game
-      scoreValue
+      avatar
+      codingLang
+      ticTacToeScores {
+        _id
+        ticTacToeScoreValue
+        createdAt
+      }
+      pongScores {
+        _id
+        pongScoreValue
+        createdAt
+      }
+      tetrisScores {
+        _id
+        tetrisScoreValue
+        createdAt
+      }
+    }
+  }
+`
+
+export const QUERY_TICTACTOE_SCORES = gql`
+  query AllTicTacToeScores {
+    allTicTacToeScores {
+      _id
+      ticTacToeScoreValue
+      userId {
+        _id
+        username
+      }
       createdAt
     }
   }
 `;
 
-export const QUERY_SINGLE_SCORE = gql`
-  query getSingleScore {
-    score {
+export const QUERY_PONG_SCORES = gql`
+  query AllPongScores {
+    allPongScores {
       _id
-      username
-      game
-      scoreValue
+      pongScoreValue
+      userId {
+        _id
+        username
+      }
       createdAt
     }
   }
 `;
 
-// Figure this out later, need to add "likes" to resolvers and typeDefs
-// export const QUERY_LIKES = gql``; 
+export const QUERY_TETRIS_SCORES = gql`
+  query AllTetrisScores {
+    allTetrisScores {
+      _id
+      tetrisScoreValue
+      userId {
+        _id
+        username
+      }
+      createdAt
+    }
+  }
+`;

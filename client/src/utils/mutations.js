@@ -28,16 +28,44 @@ export const ADD_PLAYER = gql`
   }
 `;
 
-export const ADD_SCORE = gql`
-  mutation addScore($game: String!, $scoreValue: Int) {
-    addScore(game: $game, scoreValue: $scoreValue) {
+export const ADD_TICTACTOE_SCORE = gql`
+  mutation AddTicTacToeScore($userId: ID!, $ticTacToeScoreValue: Int!) {
+    addTicTacToeScore(userId: $userId, ticTacToeScoreValue: $ticTacToeScoreValue) {
       _id
-      username
-      game
-      scoreValue
+      ticTacToeScoreValue
       createdAt
+      userId {
+        _id
+        username
+      }
     }
   }
-`
+`;
 
-// export const ADD_LIKE = gql``;
+export const ADD_PONG_SCORE = gql`
+  mutation AddPongScore($userId: ID!, $score: Int!) {
+    addPongScore(userId: $userId, score: $score) {
+      _id
+      pongScoreValue
+      createdAt
+      userId {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_TETRIS_SCORE = gql`
+  mutation AddTetrisScore($userId: ID!, $score: Int!) {
+    addTetrisScore(userId: $userId, score: $score) {
+      _id
+      tetrisScoreValue
+      createdAt
+      userId {
+        _id
+        username
+      }
+    }
+  }
+`;
