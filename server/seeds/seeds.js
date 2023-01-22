@@ -1,13 +1,15 @@
 const db = require('../config/connection');
-const { Player, PongScore, TicTacToeScore } = require ('../models');
+const { Player, PongScore, TetrisScore, TicTacToeScore } = require ('../models');
 const playerSeeds = require ('./playerSeeds.json');
-const pongSeeds = require('./pongScoreSeeds.json')
-const ticTacToeSeeds = require('./ticTacToeScoreSeeds.json')
+const pongSeeds = require('./pongScoreSeeds.json');
+const tetrisSeeds = require('./tetrisScoreSeeds.json')
+const ticTacToeSeeds = require('./ticTacToeScoreSeeds.json');
 
 db.once('open', async () => {
   try {
     await Player.deleteMany({});
     await PongScore.deleteMany({});
+    await TetrisScore.deleteMany({});
     await TicTacToeScore.deleteMany({});
 
     await Player.create(playerSeeds);
@@ -31,7 +33,28 @@ db.once('open', async () => {
           },
         }
       );
-    }
+    };
+
+    for (let i = 0; i < tetrisSeeds.length; i++) {
+      const randPlayer = await Player.aggregate([{ $sample: { size: 1 }}])
+      const randPlayerID = randPlayer[0]._id
+
+      const newScore = await TetrisScore.create(
+        {
+          userId: randPlayerID,
+          tetrisScoreValue: tetrisSeeds[i].scoreValue
+        }
+      );
+
+      await Player.findOneAndUpdate(
+        { _id: randPlayerID },
+        {
+          $addToSet: {
+            tetrisScores: newScore._id,
+          },
+        }
+      );
+    };
 
     for (let i = 0; i < ticTacToeSeeds.length; i++) {
       const randPlayer = await Player.aggregate([{ $sample: { size: 1 }}])
@@ -53,6 +76,7 @@ db.once('open', async () => {
         }
       );
     }
+
   } catch (err) {
     console.error(err);
     process.exit(1);
