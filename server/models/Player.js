@@ -27,12 +27,18 @@ const playerSchema = new Schema({
       ref: 'PongScore'
     }
   ],
+  tetrisScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'TetrisScore'
+    }
+  ],
   ticTacToeScores: [
     {
       type: Schema.Types.ObjectId,
       ref: 'TicTacToeScore'
     }
-  ]
+  ],
 });
 
 playerSchema.pre('save', async function (next) {
