@@ -62,16 +62,17 @@ export default function Games (){
         justifyContent="center"
         style={{ minHeight: "80vh" }}>
             <div className='games'>
-            <Button variant= 'outlined' className= 'games' id='tetris' href='/games/tetris'> <div>TETRIS<br/><br/>
-            HighScores:<br/><br/>
-                <ol>
-                    {sortedTetrisScores.map( (x, index) => {
-                        return (
-                            <li key={index}>{x[0]} : {x[1]}</li>
-                        )
-                    })}
-                </ol>
-            </div>
+            <Button variant= 'outlined' className= 'games' id='tetris' href='/games/tetris'> 
+                <div>TETRIS<br/><br/>
+                HighScores:<br/><br/>
+                    <ol>
+                        {sortedTetrisScores.map( (x, index) => {
+                         return (
+                             <li key={index}>{x[0]} : {x[1]}</li>
+                         )
+                        })}
+                    </ol>
+                </div>
             </Button>
             <Button variant= 'outlined' className= 'games' id='tictactoe' href='games/tictactoe'> <div>TICTACTOE<br/><br/>
             HighScores:<br/><br/>
@@ -84,7 +85,10 @@ export default function Games (){
                 </ol>
             </div>
             </Button>
+            <Button variant= 'outlined' className= 'games' id='lights' href='/games/lights-out'> <div>Lights-Out<br/><br/>
+
             <Button variant= 'outlined' className= 'games' id='lights' href='games/lights-out'> <div>Lights-Out<br/><br/>
+
             HighScores:<br/><br/>
                 <ol>
                     {sortedLightsOutScores.map( (x, index) => {
@@ -100,6 +104,8 @@ export default function Games (){
             </Button>
             </div>
         </Stack>
+  
+        
     )
 }
 

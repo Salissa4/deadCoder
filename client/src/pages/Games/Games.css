@@ -1,7 +1,6 @@
-.games{
+/* .games{
     margin-left: 120px;
-
-}
+} */
 
 p {
     margin-bottom: 0;
@@ -14,7 +13,7 @@ p {
     height:300px;
     border-radius: 0;
     border-color: #929292;
-    margin: 10px;
+    /* margin: 10px; */
     margin-bottom: 0
 }
 
