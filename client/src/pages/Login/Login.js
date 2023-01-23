@@ -61,7 +61,7 @@ export default function Login(props) {
             name="username"
             value={formState.username}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-sm border border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-sm border border-gray-400 focus:bg-transparent"
           ></input>
           <label htmlFor="password" className="fontFamily-MenloRegular text-lg pt-10">
             PASSWORD
@@ -71,7 +71,7 @@ export default function Login(props) {
             name="password"
             value={formState.password}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-sm border border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-sm border border-gray-400 focus:bg-transparent"
           ></input>
           <Button
             variant="text"
