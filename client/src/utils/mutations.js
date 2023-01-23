@@ -15,14 +15,12 @@ export const LOGIN_PLAYER = gql`
 `;
 
 export const ADD_PLAYER = gql`
-  mutation addPlayer($username: String!, $password: String!, $avatar: String!, $codingLang: String!) {
-    addPlayer(username: $username, password: $password, avatar: $avatar, codingLang: $codingLang) {
+  mutation addPlayer($username: String!, $password: String!) {
+    addPlayer(username: $username, password: $password) {
       token
       player {
         _id
         username
-        avatar
-        codingLang
       }
     }
   }
@@ -39,17 +37,11 @@ export const UPDATE_AVATAR = gql`
 `;
 
 export const ADD_TICTACTOE_SCORE = gql`
-  mutation AddTicTacToeScore($userId: ID!, $ticTacToeScoreValue: Int!) {
-    addTicTacToeScore(userId: $userId, ticTacToeScoreValue: $ticTacToeScoreValue) {
-      _id
-      ticTacToeScoreValue
-      createdAt
-      userId {
-        _id
-        username
-      }
-    }
+  mutation Mutation($userId: ID!, $score: Int!) {
+  addTicTacToeScore(userId: $userId, score: $score) {
+    ticTacToeScoreValue
   }
+}
 `;
 
 export const ADD_PONG_SCORE = gql`
