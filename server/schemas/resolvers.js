@@ -42,6 +42,8 @@ const resolvers = {
       return { token, player };
     },
 
+    // addAvatar: async (parent, {avatar}),
+
     login: async (parent, { username, password }) => {
       const player = await Player.findOne({ username });
 

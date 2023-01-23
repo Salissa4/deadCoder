@@ -16,7 +16,6 @@ const playerSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: true,
   },
   codingLang: {
     type: String,

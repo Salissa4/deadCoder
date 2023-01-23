@@ -117,3 +117,33 @@ export const QUERY_LIGHTS_OUT_SCORES = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+  query Me {
+    me {
+      _id
+      username
+      avatar
+      ticTacToeScores {
+        _id
+        ticTacToeScoreValue
+        createdAt
+      }
+      tetrisScores {
+        _id
+        tetrisScoreValue
+        createdAt
+      }
+      pongScores {
+        _id
+        pongScoreValue
+        createdAt
+      }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
+        createdAt
+      }
+    }
+  }
+`;
