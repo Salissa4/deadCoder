@@ -96,7 +96,7 @@ export default function Signup() {
           </Button>
           {error ? (
             <div>
-              <p className="text-2xl text-red-500">INVALID CREDENTIALS</p>
+              <p className="text-xl text-red-500">INVALID CREDENTIALS</p>
             </div>
           ) : null}
         </Stack>
