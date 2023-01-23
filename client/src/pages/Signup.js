@@ -35,7 +35,7 @@ export default function Signup() {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data.addPlayer.token);
     } catch (e) {
       console.error(e);
     }
