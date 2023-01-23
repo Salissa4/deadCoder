@@ -7,14 +7,14 @@ export default function Dashboard() {
     const { data } = useQuery(QUERY_PLAYER, { variables: { id: playerid }})
     const username = data?.player.username || ""
     const rawTetrisScores = data?.player.tetrisScores || []
-    const rawPongScores = data?.player.pongScores || []
+    //const rawPongScores = data?.player.pongScores || []
     const rawTicTacToeScores = data?.player.ticTacToeScores || []
 
     console.log(rawTetrisScores)
 
     const tetrisScores = rawTetrisScores.map((x)=>{ return x.tetrisScoreValue})
     const ticTacToeScores = rawTicTacToeScores.map((x)=>{ return x.ticTacToeScoreValue}).sort(function(a,b){return b- a})
-    const pongScores = rawPongScores.map((x)=>{ return x.pongScoreValue})
+    //const pongScores = rawPongScores.map((x)=>{ return x.pongScoreValue})
 
     return (
         <div>
