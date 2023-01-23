@@ -16,6 +16,7 @@ const playerSchema = new Schema({
   },
   avatar: {
     type: String,
+    default: '../../assets/Avatars/Fish bones.png'
   },
   codingLang: {
     type: String,

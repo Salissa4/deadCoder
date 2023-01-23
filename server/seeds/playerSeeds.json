@@ -1,31 +1,26 @@
 [
     {
         "username": "Kirby Cutter",
-        "avatar": "unicorn",
         "password": "sunrise1",
         "codingLang": "python"
     },
     {
         "username": "Mr. Coco Stapler",
-        "avatar": "camel",
         "password": "sunrise2",
         "codingLang": "all"
     },
     {
         "username": "Helix Edger",
-        "avatar": "elephant",
         "password": "sunrise3",
         "codingLang": "html"
     },
     {
         "username": "Sheik Reamer",
-        "avatar": "lion",
         "password": "sunrise4",
         "codingLang": "java"
     },
     {
         "username": "Fox Squeegee",
-        "avatar": "orca",
         "password": "sunrise5",
         "codingLang": "css"
     }
