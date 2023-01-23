@@ -8,7 +8,7 @@ const resolvers = {
       return Player.find().populate('pongScores').populate('ticTacToeScores').populate('tetrisScores').populate('lightsOutScores');
     },
     player: async (parent, { _id }) => {
-      return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores').populate('tetrisScores');
+      return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores').populate('tetrisScores').populate('lightsOutScores');
     },
     allPongScores: async () => {
       return PongScore.find({}).sort({ createdAt: -1 }).populate('userId')
@@ -42,8 +42,6 @@ const resolvers = {
       return { token, player };
     },
 
-    // addAvatar: async (parent, {avatar}),
-
     login: async (parent, { username, password }) => {
       const player = await Player.findOne({ username });
 
@@ -60,6 +58,15 @@ const resolvers = {
       const token = signToken(player);
 
       return { token, player };
+    },
+
+    updateAvatar: async (parent, { userId, avatar }) => {
+      return await Player.findOneAndUpdate(
+        { _id: userId }, 
+        { avatar },
+        // Return the newly updated object instead of the original
+        { new: true }
+      );
     },
 
     addPongScore: async (parent, { userId, score }) => {

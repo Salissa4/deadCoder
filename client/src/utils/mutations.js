@@ -28,6 +28,16 @@ export const ADD_PLAYER = gql`
   }
 `;
 
+export const UPDATE_AVATAR = gql`
+  mutation UpdateAvatar($userId: ID!, $avatar: String!) {
+    updateAvatar(userId: $userId, avatar: $avatar) {
+      _id
+      username
+      avatar
+    }
+  }
+`;
+
 export const ADD_TICTACTOE_SCORE = gql`
   mutation AddTicTacToeScore($userId: ID!, $ticTacToeScoreValue: Int!) {
     addTicTacToeScore(userId: $userId, ticTacToeScoreValue: $ticTacToeScoreValue) {
