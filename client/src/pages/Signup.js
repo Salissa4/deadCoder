@@ -44,10 +44,10 @@ export default function Signup() {
   };
 
   return (
-    <div className="mt-52 mx-auto">
+    <div className="pt-52">
       <form onSubmit={handleFormSubmit}>
         <Stack
-          spacing={5}
+          spacing={3}
           className="signup"
           alignItems="center"
           justifyContent="center"
@@ -59,28 +59,28 @@ export default function Signup() {
               fontFamily: "MenloRegular",
             }}
           >
-            {" "}
-            SIGN UP WITH A GENERATED USERNAME OR CREATE YOUR OWN{" "}
+            {/* {" "}
+            SIGN UP WITH A GENERATED USERNAME OR CREATE YOUR OWN{" "} */}
           </Typography>
-          <label htmlFor="username" className="fontFamily-MenloRegular text-xl">
-            USERNAME
+          <label htmlFor="username" className="fontFamily-MenloRegular text-lg">
+            CHOOSE USERNAME
           </label>
           <input
             type="username"
             name="username"
             value={formState.username}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-lg border border-gray-400 focus:bg-transparent"
           ></input>
-          <label htmlFor="password" className="fontFamily-MenloRegular text-xl">
-            PASSWORD
+          <label htmlFor="password" className=" pt-10 fontFamily-MenloRegular text-lg">
+            CHOOSE PASSWORD
           </label>
           <input
             type="password"
             name="password"
             value={formState.password}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-lg border border-gray-400 focus:bg-transparent"
           ></input>
           <Button
             variant="text"
@@ -89,7 +89,7 @@ export default function Signup() {
             sx={{
               width: 200,
               fontFamily: "MenloRegular",
-              fontSize: 20,
+              fontSize: 17,
               color: "white",
               cursor: "pointer",
             }}
@@ -98,7 +98,7 @@ export default function Signup() {
           </Button>
           {error ? (
             <div>
-              <p className="text-2xl text-red-500">INVALID CREDENTIALS</p>
+              <p className="text-xl text-red-500">INVALID CREDENTIALS</p>
             </div>
           ) : null}
         </Stack>

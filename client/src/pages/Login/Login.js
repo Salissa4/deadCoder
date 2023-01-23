@@ -48,12 +48,12 @@ export default function Login(props) {
     <div className="pt-52">
       <form onSubmit={handleFormSubmit}>
         <Stack
-          spacing={5}
+          spacing={3}
           className="loginform"
           alignItems="center"
           justifyContent="center"
         >
-          <label htmlFor="username" className="fontFamily-MenloRegular text-xl">
+          <label htmlFor="username" className="fontFamily-MenloRegular text-lg">
             USERNAME
           </label>
           <input
@@ -61,9 +61,9 @@ export default function Login(props) {
             name="username"
             value={formState.username}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-sm border border-gray-400 focus:bg-transparent"
           ></input>
-          <label htmlFor="password" className="fontFamily-MenloRegular text-xl">
+          <label htmlFor="password" className="fontFamily-MenloRegular text-lg pt-10">
             PASSWORD
           </label>
           <input
@@ -71,7 +71,7 @@ export default function Login(props) {
             name="password"
             value={formState.password}
             onChange={handleChange}
-            className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
+            className="bg-transparent p-2 text-stone-100 text-sm border border-gray-400 focus:bg-transparent"
           ></input>
           <Button
             variant="text"
@@ -80,7 +80,7 @@ export default function Login(props) {
             sx={{
               width: 200,
               fontFamily: "MenloRegular",
-              fontSize: 20,
+              fontSize: 15,
               color: "white",
             }}
           >

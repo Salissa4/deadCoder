@@ -5,32 +5,40 @@ import { Button } from "@mui/material";
 export default function Home() {
   return (
 
-    <div className="pt-52 justify-center align-middle">
-      <h2 className="text-stone-100 text-2xl">ARE YOU DEAD YET?</h2>
-      <div className="pt-10">
+    <div className="pt-52 justify-center align-middle pt-80">
+      <h2 className="text-stone-100 text-lg">ARE YOU DEAD YET?</h2>
+      <div className="pt-5">
         <Button 
         variant="text" 
-        className="text-xl mr-2" 
+        className="mr-2" 
         href="/login"
         sx={{
-          width: 200,
+          width: 100,
           fontFamily: "MenloRegular",
-          fontSize: 15,
-          color: 'white'
+          fontSize: 17,
+          color: 'white',
+          border: 0.5,
+          borderColor: '#929292',
+          borderRadius: 0,
+          mr: 3
         }}
         >
           YES
         </Button>
         <Button 
         variant="text" 
-        className="text-xl ml-2" 
+        className="ml-2" 
         href="/signup"
         sx={{
-          width: 200,
+          width: 100,
           fontFamily: "MenloRegular",
-          fontSize: 15,
-          color: 'white'
-        }}
+          fontSize: 17,
+          color: 'white',
+          border: 0.5,
+          borderColor: '#929292', 
+          borderRadius: 0,
+          ml: 6
+                }}
         >
           NO
         </Button>
