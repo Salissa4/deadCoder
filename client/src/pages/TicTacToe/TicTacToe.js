@@ -123,27 +123,27 @@ function App() {
           />
         )}
       </Board >
-      <div>
-        <div>Wins: {winCount}</div>
-        <div>Losses: {loseCount}</div>
-        <div onClick={()=>endSession()}>Score it and Play a New Game</div>
+      <div className='stats'>
+        <div className='win'>WINS {winCount}</div>
+        <div>LOSSES {loseCount}</div>
+        <div className='tictacbutton' onClick={()=>endSession()}>SAVE SCORE AND PLAY AGAIN</div>
       </div>
       {!!winner && winner === 'x' && (
         <div className='tictacbody'>
-          You WON!
-          <div onClick={()=>handleReplay()}>Play Again?</div>
+          WIN
+          <div className='tictacbutton' onClick={()=>handleReplay()}>PLAY AGAIN?</div>
         </div>
       )}
       {!!winner && winner === 'o' && (
         <div className='tictacbody'>
-          You LOST!
-          <div onClick={()=>handleReplay()}>Play Again?</div>
+          LOSS
+          <div className='tictacbutton' onClick={()=>handleReplay()}>PLAY AGAIN?</div>
         </div>
       )}
       {!!winner && winner === 'draw' && (
         <div className='tictacbody'>
-          DRAW!
-          <div onClick={()=>handleReplay()}>Play Again?</div>
+          DRAW
+          <div className='tictacbutton' onClick={()=>handleReplay()}>PLAY AGAIN?</div>
         </div>
       )}
     </main>
