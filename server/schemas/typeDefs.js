@@ -69,7 +69,7 @@ const typeDefs = gql`
         addPongScore(userId: ID!, score: Int!): PongScore
         addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
         addTetrisScore(userId: ID!, score: Int!): TetrisScore
-        addLightsOutScoreScore(userId: ID!, score: Int!): LightsOutScore
+        addLightsOutScore(userId: ID!, score: Int!): LightsOutScore
         # addLike(game: String!, likeType: String): Like
     }
 `;
