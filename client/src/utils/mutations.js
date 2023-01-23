@@ -15,14 +15,16 @@ export const LOGIN_PLAYER = gql`
 `;
 
 export const ADD_PLAYER = gql`
-  mutation addPlayer($username: String!, $password: String!, $avatar: String!, $codingLang: String!) {
-    addPlayer(username: $username, password: $password, avatar: $avatar, codingLang: $codingLang) {
+  mutation addPlayer($username: String!, $password: String!) {
+    addPlayer(username: $username, password: $password) {
       token
       player {
         _id
         username
-        avatar
-        codingLang
+<<<<<<< HEAD
+
+=======
+>>>>>>> 51d764da1d08c522168544edcd350c3e010194fe
       }
     }
   }
