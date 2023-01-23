@@ -22,6 +22,11 @@ export const QUERY_ALL_PLAYERS = gql`
         tetrisScoreValue
         createdAt
       }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
+        createdAt
+      }
     }
   }
 `;
@@ -46,6 +51,11 @@ export const QUERY_PLAYER = gql`
       tetrisScores {
         _id
         tetrisScoreValue
+        createdAt
+      }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
         createdAt
       }
     }
@@ -85,6 +95,20 @@ export const QUERY_TETRIS_SCORES = gql`
     allTetrisScores {
       _id
       tetrisScoreValue
+      userId {
+        _id
+        username
+      }
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_LIGHTS_OUT_SCORES = gql`
+  query AllLightsOutScores {
+    allLightsOutScores {
+      _id
+      lightsOutScoreValue
       userId {
         _id
         username

@@ -69,3 +69,17 @@ export const ADD_TETRIS_SCORE = gql`
     }
   }
 `;
+
+export const ADD_LIGHTS_OUT_SCORE = gql`
+  mutation AddLightsOutScore($userId: ID!, $score: Int!) {
+    addLightsOutScore(userId: $userId, score: $score) {
+      _id
+      lightsOutScoreValue
+      createdAt
+      userId {
+        _id
+        username
+      }
+    }
+  }
+`;

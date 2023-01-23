@@ -10,6 +10,7 @@ const typeDefs = gql`
         pongScores: [PongScore]
         tetrisScores: [TetrisScore]
         ticTacToeScores: [TicTacToeScore]
+        lightsOutScores: [LightsOutScore]
     }
 
     type PongScore {
@@ -33,6 +34,13 @@ const typeDefs = gql`
         createdAt: String
     }
 
+    type LightsOutScore {
+        _id: ID
+        userId: Player
+        lightsOutScoreValue: Int
+        createdAt: String
+    }
+
     # type Like {
     #     _id: ID
     #     game: String
@@ -50,6 +58,7 @@ const typeDefs = gql`
         allPongScores: [PongScore]
         allTicTacToeScores: [TicTacToeScore]
         allTetrisScores: [TetrisScore]
+        allLightsOutScores: [LightsOutScore]
         # likes
         me: Player
     }
@@ -60,6 +69,7 @@ const typeDefs = gql`
         addPongScore(userId: ID!, score: Int!): PongScore
         addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
         addTetrisScore(userId: ID!, score: Int!): TetrisScore
+        addLightsOutScoreScore(userId: ID!, score: Int!): LightsOutScore
         # addLike(game: String!, likeType: String): Like
     }
 `;

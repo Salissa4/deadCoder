@@ -39,6 +39,12 @@ const playerSchema = new Schema({
       ref: 'TicTacToeScore'
     }
   ],
+  LightsOutScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'LightsOutScore'
+    }
+  ],
 });
 
 playerSchema.pre('save', async function (next) {
