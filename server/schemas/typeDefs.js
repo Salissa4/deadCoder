@@ -68,7 +68,7 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         updateAvatar(userId: ID!, avatar: String!): Player
         addPongScore(userId: ID!, score: Int!): PongScore
-        addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
+        addTicTacToeScore(userId: ID!, score: Int!): TicTacToeScore
         addTetrisScore(userId: ID!, score: Int!): TetrisScore
         addLightsOutScore(userId: ID!, score: Int!): LightsOutScore
         # addLike(game: String!, likeType: String): Like

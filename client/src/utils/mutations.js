@@ -41,17 +41,11 @@ export const UPDATE_AVATAR = gql`
 `;
 
 export const ADD_TICTACTOE_SCORE = gql`
-  mutation AddTicTacToeScore($userId: ID!, $ticTacToeScoreValue: Int!) {
-    addTicTacToeScore(userId: $userId, ticTacToeScoreValue: $ticTacToeScoreValue) {
-      _id
-      ticTacToeScoreValue
-      createdAt
-      userId {
-        _id
-        username
-      }
-    }
+  mutation Mutation($userId: ID!, $score: Int!) {
+  addTicTacToeScore(userId: $userId, score: $score) {
+    ticTacToeScoreValue
   }
+}
 `;
 
 export const ADD_PONG_SCORE = gql`
