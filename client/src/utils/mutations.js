@@ -21,7 +21,10 @@ export const ADD_PLAYER = gql`
       player {
         _id
         username
+<<<<<<< HEAD
 
+=======
+>>>>>>> 51d764da1d08c522168544edcd350c3e010194fe
       }
     }
   }

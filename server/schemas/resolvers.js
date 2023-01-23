@@ -35,7 +35,6 @@ const resolvers = {
       const player = await Player.create({
         username,
         password,
-
       });
       const token = signToken(player);
       return { token, player };

@@ -64,7 +64,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addPlayer(username: String!, password: String! ): Auth
+        addPlayer(username: String!, password: String!): Auth
         login(username: String!, password: String!): Auth
         updateAvatar(userId: ID!, avatar: String!): Player
         addPongScore(userId: ID!, score: Int!): PongScore
