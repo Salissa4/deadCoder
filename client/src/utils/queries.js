@@ -22,6 +22,11 @@ export const QUERY_ALL_PLAYERS = gql`
         tetrisScoreValue
         createdAt
       }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
+        createdAt
+      }
     }
   }
 `;
@@ -46,6 +51,11 @@ export const QUERY_PLAYER = gql`
       tetrisScores {
         _id
         tetrisScoreValue
+        createdAt
+      }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
         createdAt
       }
     }
@@ -90,6 +100,50 @@ export const QUERY_TETRIS_SCORES = gql`
         username
       }
       createdAt
+    }
+  }
+`;
+
+export const QUERY_LIGHTS_OUT_SCORES = gql`
+  query AllLightsOutScores {
+    allLightsOutScores {
+      _id
+      lightsOutScoreValue
+      userId {
+        _id
+        username
+      }
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query Me {
+    me {
+      _id
+      username
+      avatar
+      ticTacToeScores {
+        _id
+        ticTacToeScoreValue
+        createdAt
+      }
+      tetrisScores {
+        _id
+        tetrisScoreValue
+        createdAt
+      }
+      pongScores {
+        _id
+        pongScoreValue
+        createdAt
+      }
+      lightsOutScores {
+        _id
+        lightsOutScoreValue
+        createdAt
+      }
     }
   }
 `;

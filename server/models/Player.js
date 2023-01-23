@@ -16,7 +16,7 @@ const playerSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: true,
+    default: '../../assets/Avatars/Fish bones.png'
   },
   codingLang: {
     type: String,
@@ -37,6 +37,12 @@ const playerSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'TicTacToeScore'
+    }
+  ],
+  lightsOutScores: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'LightsOutScore'
     }
   ],
 });

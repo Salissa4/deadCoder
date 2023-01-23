@@ -3,6 +3,22 @@
   color:#fff;
 }
 
+.stats{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 650px;
+}
+
+.tictacbody{
+  margin-top: 30px;
+}
+
+.tictacbutton:hover{
+  cursor: pointer;
+  color: #D992B1
+
+}
+
 .tictac{
   width: 300px;
   /* margin: 50px auto 0; */
@@ -14,6 +30,10 @@ div.boardtictac{
   grid-template-rows: 1fr 1fr 1fr;
   padding-top: 100px;
   padding-left: 470px;
+}
+
+div.boardtictac:hover{
+  cursor:pointer;
 }
 
 div.square{

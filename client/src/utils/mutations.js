@@ -28,6 +28,16 @@ export const ADD_PLAYER = gql`
   }
 `;
 
+export const UPDATE_AVATAR = gql`
+  mutation UpdateAvatar($userId: ID!, $avatar: String!) {
+    updateAvatar(userId: $userId, avatar: $avatar) {
+      _id
+      username
+      avatar
+    }
+  }
+`;
+
 export const ADD_TICTACTOE_SCORE = gql`
   mutation AddTicTacToeScore($userId: ID!, $ticTacToeScoreValue: Int!) {
     addTicTacToeScore(userId: $userId, ticTacToeScoreValue: $ticTacToeScoreValue) {
@@ -61,6 +71,20 @@ export const ADD_TETRIS_SCORE = gql`
     addTetrisScore(userId: $userId, score: $score) {
       _id
       tetrisScoreValue
+      createdAt
+      userId {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_LIGHTS_OUT_SCORE = gql`
+  mutation AddLightsOutScore($userId: ID!, $score: Int!) {
+    addLightsOutScore(userId: $userId, score: $score) {
+      _id
+      lightsOutScoreValue
       createdAt
       userId {
         _id
