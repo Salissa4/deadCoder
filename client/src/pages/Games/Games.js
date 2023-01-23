@@ -1,6 +1,6 @@
 import './Games.css'
 import { Button } from '@mui/material'
-import { Stack } from '@mui/material'
+import { Stack, Grid } from '@mui/material'
 import { useQuery } from "@apollo/client";
 import { QUERY_TETRIS_SCORES, QUERY_TICTACTOE_SCORES, /*QUERY_PONG_SCORES,*/ QUERY_LIGHTS_OUT_SCORES } from "../../utils/queries";
 
@@ -58,24 +58,30 @@ export default function Games (){
     //console.log(sortedLightsOutScores)
 
     return (
-        <Stack direction="row" spacing={5} alignItems="center"
-        justifyContent="center"
-        style={{ minHeight: "80vh" }}>
-            <div className='games'>
+        <Grid container spacing={2} className="pt-52">
+            
+            <Grid item xs={3} >
             <Button variant= 'outlined' className= 'games' id='tetris' href='/games/tetris'> 
-                <div>TETRIS<br/><br/>
-                HighScores:<br/><br/>
-                    <ol>
-                        {sortedTetrisScores.map( (x, index) => {
-                         return (
-                             <li key={index}>{x[0]} : {x[1]}</li>
-                         )
-                        })}
-                    </ol>
-                </div>
+            <div>TETRIS</div>
             </Button>
-            <Button variant= 'outlined' className= 'games' id='tictactoe' href='/games/tictactoe'> <div>TICTACTOE<br/><br/>
-            HighScores:<br/><br/>
+            <div className="pt-5 text-sm">
+            HIGH SCORES
+                <ol>
+                    {sortedTetrisScores.map( (x, index) => {
+                        return (
+                            <li key={index}>{x[0]} : {x[1]}</li>
+                        )
+                    })}
+                </ol>
+            </div>
+            </Grid>
+
+            <Grid item xs={3}>
+            <Button variant= 'outlined' className= 'games' id='tictactoe' href='games/tictactoe'> 
+            <div>TICTACTOE</div>
+            </Button>
+            <div className="pt-5 text-sm">
+            HIGH SCORES
                 <ol>
                     {sortedTicTacToeScores.map( (x, index) => {
                         return (
@@ -84,9 +90,14 @@ export default function Games (){
                     })}
                 </ol>
             </div>
+            </Grid>
+
+            <Grid item xs={3}>
+            <Button variant= 'outlined' className= 'games' id='lights' href='/games/lights-out'>
+            <div>Lights-Out</div>
             </Button>
-            <Button variant= 'outlined' className= 'games' id='lights' href='/games/lights-out'> <div>Lights-Out<br/><br/>
-            HighScores:<br/><br/>
+            <div className="pt-5 text-sm">
+            HIGH SCORES
                 <ol>
                     {sortedLightsOutScores.map( (x, index) => {
                         return (
@@ -95,13 +106,26 @@ export default function Games (){
                     })}
                 </ol>
             </div>
-            </Button>
+            </Grid>
+
+            <Grid item xs={3}>
             <Button variant= 'outlined' className= 'games' id='pong'>
-            PONG
+            <div>PONG</div>
             </Button>
+            <div className="pt-5 text-sm">
+            HIGH SCORES
+                <ol>
+                    {sortedLightsOutScores.map( (x, index) => {
+                        return (
+                            <li key={index}>{x[0]} : {x[1]}</li>
+                        )
+                    })}
+                </ol>
             </div>
-        </Stack>
-  
+            </Grid>
+
+        </Grid>
+
         
     )
 }

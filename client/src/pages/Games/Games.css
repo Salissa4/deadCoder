@@ -14,7 +14,7 @@ p {
     border-radius: 0;
     border-color: #929292;
     /* margin: 10px; */
-    margin-bottom: 0
+
 }
 
 #tictactoe{
@@ -24,7 +24,7 @@ p {
     height:300px;
     border-radius: 0;
     border-color: #929292;
-    margin: 10px
+    /* margin: 10px */
 }
 
 #lights{
@@ -34,7 +34,7 @@ p {
     height:300px;
     border-radius: 0;
     border-color: #929292;
-    margin: 10px
+    /* margin: 10px */
 }
 
 #pong{
@@ -44,5 +44,5 @@ p {
     height:300px;
     border-radius: 0;
     border-color: #929292;
-    margin: 10px;
+    /* margin: 10px; */
 }
