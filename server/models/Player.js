@@ -38,7 +38,7 @@ const playerSchema = new Schema({
       ref: 'TicTacToeScore'
     }
   ],
-  LightsOutScores: [
+  lightsOutScores: [
     {
       type: Schema.Types.ObjectId,
       ref: 'LightsOutScore'

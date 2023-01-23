@@ -66,6 +66,7 @@ const typeDefs = gql`
     type Mutation {
         addPlayer(username: String!, password: String!, avatar: String!, codingLang: String ): Auth
         login(username: String!, password: String!): Auth
+        updateAvatar(userId: ID!, avatar: String!): Player
         addPongScore(userId: ID!, score: Int!): PongScore
         addTicTacToeScore(userId: ID!, ticTacToeScoreValue: Int!): TicTacToeScore
         addTetrisScore(userId: ID!, score: Int!): TetrisScore
