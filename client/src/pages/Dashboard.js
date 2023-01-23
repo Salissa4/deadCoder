@@ -18,15 +18,15 @@ export default function Dashboard() {
 
     return (
         <div>
-            {/* <p>Hello {username}, here are your HighScores</p> */}
-            {/* <p>Tetris:</p>
+            <p>Hello {username}, here are your HighScores</p>
+            <p>Tetris:</p>
             <ol>
                 {tetrisScores.map((score, index)=>{
                     return (
                         <li key={index}>{score}</li>
                     )
                 })}
-            </ol> */}
+            </ol>
             <p>TicTacToe:</p>
             <ol>
                 {ticTacToeScores.map((score, index)=>{
@@ -35,7 +35,6 @@ export default function Dashboard() {
                     )
                 })}
             </ol>
-
         </div>
     );
 }
