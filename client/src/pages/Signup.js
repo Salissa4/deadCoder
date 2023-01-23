@@ -3,9 +3,9 @@ import { TextField, Typography, Stack, Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import randomUsernames from "../assets/login/RandomUsernames";
 
 export default function Signup() {
-  const [userName, setUserName] = useState("");
 
   const [formState, setFormState] = useState({
     username: "",
@@ -36,112 +36,6 @@ export default function Signup() {
       console.error(e);
     }
   };
-
-  const firstNames = [
-    "Mario",
-    "Luigi",
-    "PrincessPeach",
-    "Toad",
-    "Toadette",
-    "Bowser",
-    "Daisy",
-    "Wario",
-    "Waluigi",
-    "Rosalina",
-    "Goomba",
-    "KoopaTroopa",
-    "Koopalings",
-    "Yoshi",
-    "BabyMario",
-    "BabyLuigi",
-    "Kamek",
-    "ShyGuy",
-    "Cappy",
-    "Kirby",
-    "KingDedede",
-    "MetaKnight",
-    "WhispyWoods",
-    "DonkeyKong",
-    "DiddyKong",
-    "DixieKong",
-    "CrankyKong",
-    "FunkyKong",
-    "Link",
-    "PrincessZelda",
-    "Ganondorf",
-    "Epona",
-    "Sheik",
-    "Pikachu",
-    "DeepCut",
-    "Mr.Coco",
-    "Cap'nCuttlefish",
-    "TomNook",
-    "Blathers",
-    "K.K.Slider",
-    "Kapp'n",
-    "CaptainOlimar",
-    "Pikmin",
-    "Bulborb",
-    "Roughraff",
-    "Snotsolong",
-    "Samus",
-    "Fox",
-    "Ninjara",
-    "Mechanica",
-    "MasterMummy",
-    "Helix",
-    "Byte&Barq",
-    "Twintelle",
-    "DryBones",
-  ];
-
-  const lastNames = [
-    "-Cutter",
-    "-Carpenter",
-    "-Clipper",
-    "-Countersinker",
-    "-Cutter",
-    "-Driller",
-    "-Edger",
-    "-Electricdriller",
-    "-Fastener",
-    "-Glasscutter",
-    "-Grinder",
-    "-Hacksawer",
-    "-Hammer",
-    "-Handsawer",
-    "-Hoe",
-    "-Machete",
-    "-Nails",
-    "-Nut",
-    "-Screwdriver",
-    "-Ratchet",
-    "-Reamer",
-    "-Scraper",
-    "-Screwer",
-    "-Screwdriver",
-    "-Sharpener",
-    "-Squeegee",
-    "-Stapler",
-    "-Tacktillertongs",
-    "-Woodworker",
-  ];
-
-  const randomFirst = firstNames[Math.floor(Math.random() * firstNames.length)];
-  const randomLast = lastNames[Math.floor(Math.random() * lastNames.length)];
-
-  useEffect(() => {
-    const onPageLoad = () => {
-      setUserName(`${randomFirst}${randomLast}`);
-    };
-
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad);
-      return () => window.removeEventListener("load", onPageLoad);
-    }
-  }, []);
 
   return (
     <div className="mt-52">
@@ -177,11 +71,8 @@ export default function Signup() {
           <input
             type="username"
             name="username"
-            value={formState.userName}
-            onChange={(e) => {
-              setUserName(e.target.value);
-              handleChange(e);
-            }}
+            value={formState.username}
+            onChange={handleChange}
             className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
           ></input>
           <label for="password" className="fontFamily-MenloRegular text-xl">
