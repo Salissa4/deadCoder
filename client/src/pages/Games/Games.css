@@ -3,6 +3,10 @@
 
 }
 
+p {
+    margin-bottom: 0;
+}
+
 #tetris{
     font-family: "MenloRegular";
     color: whitesmoke;
@@ -10,7 +14,8 @@
     height:300px;
     border-radius: 0;
     border-color: #929292;
-    margin: 10px
+    margin: 10px;
+    margin-bottom: 0
 }
 
 #tictactoe{
