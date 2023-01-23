@@ -8,7 +8,7 @@ const resolvers = {
       return Player.find().populate('pongScores').populate('ticTacToeScores').populate('tetrisScores').populate('lightsOutScores');
     },
     player: async (parent, { _id }) => {
-      return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores');
+      return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores').populate('tetrisScores');
     },
     allPongScores: async () => {
       return PongScore.find({}).sort({ createdAt: -1 }).populate('userId')
