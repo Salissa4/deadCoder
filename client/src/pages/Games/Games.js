@@ -74,7 +74,7 @@ export default function Games (){
                     </ol>
                 </div>
             </Button>
-            <Button variant= 'outlined' className= 'games' id='tictactoe' href='games/tictactoe'> <div>TICTACTOE<br/><br/>
+            <Button variant= 'outlined' className= 'games' id='tictactoe' href='/games/tictactoe'> <div>TICTACTOE<br/><br/>
             HighScores:<br/><br/>
                 <ol>
                     {sortedTicTacToeScores.map( (x, index) => {
@@ -86,9 +86,6 @@ export default function Games (){
             </div>
             </Button>
             <Button variant= 'outlined' className= 'games' id='lights' href='/games/lights-out'> <div>Lights-Out<br/><br/>
-
-            <Button variant= 'outlined' className= 'games' id='lights' href='games/lights-out'> <div>Lights-Out<br/><br/>
-
             HighScores:<br/><br/>
                 <ol>
                     {sortedLightsOutScores.map( (x, index) => {
