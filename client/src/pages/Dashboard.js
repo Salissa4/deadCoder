@@ -1,16 +1,21 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_PLAYER } from "../utils/queries";
+import { QUERY_PLAYER, QUERY_ALL_PLAYERS} from "../utils/queries";
 
 export default function Dashboard() {
-    const playerid = "63cca13febef176eb99c6fe7";
+    //random player until we have login/sign-up working
+    const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
+    const allPlayers = allPlayersData.data?.allPlayers || [];
+    const randplayerID = allPlayers[3]?._id || []
+
+    //console.log(randplayer)
+
+    const playerid = randplayerID;
     const { data } = useQuery(QUERY_PLAYER, { variables: { id: playerid }})
     const username = data?.player.username || ""
     const rawTetrisScores = data?.player.tetrisScores || []
     const rawPongScores = data?.player.pongScores || []
     const rawTicTacToeScores = data?.player.ticTacToeScores || []
-
-    console.log(rawTetrisScores)
 
     const tetrisScores = rawTetrisScores.map((x)=>{ return x.tetrisScoreValue})
     const ticTacToeScores = rawTicTacToeScores.map((x)=>{ return x.ticTacToeScoreValue}).sort(function(a,b){return b- a})
@@ -18,15 +23,15 @@ export default function Dashboard() {
 
     return (
         <div>
-            {/* <p>Hello {username}, here are your HighScores</p> */}
-            {/* <p>Tetris:</p>
+            Hello {username}, here are your HighScores<br/>
+            Tetris:
             <ol>
                 {tetrisScores.map((score, index)=>{
                     return (
                         <li key={index}>{score}</li>
                     )
                 })}
-            </ol> */}
+            </ol>
             <p>TicTacToe:</p>
             <ol>
                 {ticTacToeScores.map((score, index)=>{
