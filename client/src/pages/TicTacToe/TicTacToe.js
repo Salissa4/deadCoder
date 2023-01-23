@@ -1,9 +1,13 @@
 import './TicTacToe.css';
 import Board from "./BoardTicTacToe";
 import Square from "./Square";
-import {useState, useEffect} from 'react';
+import {useState, useEffect, } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ALL_PLAYERS } from '../../utils/queries';
+import { ADD_TICTACTOE_SCORE } from '../../utils/mutations';
 
 const defaultSquares = () => (new Array(9)).fill(null);
+
 
 const lines = [
   [0,1,2], [3,4,5], [6,7,8],
@@ -12,10 +16,17 @@ const lines = [
 ];
 
 function App() {
+  //random player until we have login/sign-up working
+  const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
+  const allPlayers = allPlayersData.data?.allPlayers || [];
+  const randplayerID = allPlayers[0]?._id || []
+
   const [squares, setSquares] = useState(defaultSquares());
   const [winner,setWinner] = useState(null);
   const [winCount, setWinCount] = useState(0);
   const [loseCount, setLoseCount] = useState(0);
+  const [score, setScore] = useState(0);
+  const [addScore, { error }] = useMutation(ADD_TICTACTOE_SCORE)
 
   useEffect(() => {
     const isComputerTurn = squares.filter(square => square !== null).length % 2 === 1;
@@ -36,12 +47,18 @@ function App() {
     const draw = emptyIndexes.length === 0;
 
     if (playerWon) {
-      setWinCount(winCount+1)
+      setWinCount(winCount+1);
+      if (winCount+1 - loseCount > 0) {
+        setScore((winCount+1 - loseCount)*10)
+      }
       setWinner('x');
       return
     }
     if (computerWon) {
       setLoseCount(loseCount+1)
+      if (winCount - loseCount -1 > 0){
+        setScore((winCount - loseCount-1)*10)
+      }
       setWinner('o');
       return
     }
@@ -104,11 +121,13 @@ function App() {
     setSquares(defaultSquares);
   }
 
-  function endSession() {
-    const score = (winCount - loseCount) * 100
-    console.log(score)
+  async function endSession() {
     //TODO: Send score to server
+    const scoredgame = await addScore({ variables: { userId: randplayerID, score: score }})
+    
+    console.log(scoredgame)
     //TODO: Route back to homescreen
+
   }
 
   return (
@@ -131,12 +150,14 @@ function App() {
       {!!winner && winner === 'x' && (
         <div className='tictacbody'>
           WIN
+          <div>Score this session: {score}</div>
           <div className='tictacbutton' onClick={()=>handleReplay()}>PLAY AGAIN?</div>
         </div>
       )}
       {!!winner && winner === 'o' && (
         <div className='tictacbody'>
           LOSS
+          <div>Score this session: {score}</div>
           <div className='tictacbutton' onClick={()=>handleReplay()}>PLAY AGAIN?</div>
         </div>
       )}
