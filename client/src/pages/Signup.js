@@ -3,15 +3,15 @@ import { TextField, Typography, Stack, Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/auth";
-import randomUsernames from "../assets/Login/RandomUsernames";
+//import randomUsernames from "../assets/Login/RandomUsernames";
+
 
 export default function Signup() {
-
   const [formState, setFormState] = useState({
     username: "",
     password: "",
   });
-  const [addUser, { error, data }] = useMutation(ADD_PLAYER);
+  const [addPlayer, { error, data }] = useMutation(ADD_PLAYER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -25,9 +25,13 @@ export default function Signup() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+    let test = 0;
+    console.log(test);
+    test++;
+    console.log(test);
 
     try {
-      const { data } = await addUser({
+      const { data } = await addPlayer({
         variables: { ...formState },
       });
 
@@ -38,14 +42,14 @@ export default function Signup() {
   };
 
   return (
-    <div className="mt-52">
-      <Stack
-        spacing={5}
-        className="signup"
-        alignItems="center"
-        justifyContent="center"
-        onSubmit={handleFormSubmit}
-      >
+    <div className="mt-52 mx-auto">
+      <form onSubmit={handleFormSubmit}>
+        <Stack
+          spacing={5}
+          className="signup"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography
             variant="h5"
             gutterBottom
@@ -56,16 +60,7 @@ export default function Signup() {
             {" "}
             SIGN UP WITH A GENERATED USERNAME OR CREATE YOUR OWN{" "}
           </Typography>
-          {/* <TextField
-          hiddenLabel
-          margin="normal"
-          id="standard-basic"
-          value={userName}
-          variant="standard"
-          sx={{ color: 'white', borderColor: 'white' }}
-          onChange={(e) => setUserName(e.target.value)}
-        /> */}
-          <label for="username" className="fontFamily-MenloRegular text-xl">
+          <label htmlFor="username" className="fontFamily-MenloRegular text-xl">
             USERNAME
           </label>
           <input
@@ -75,7 +70,7 @@ export default function Signup() {
             onChange={handleChange}
             className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
           ></input>
-          <label for="password" className="fontFamily-MenloRegular text-xl">
+          <label htmlFor="password" className="fontFamily-MenloRegular text-xl">
             PASSWORD
           </label>
           <input
@@ -84,34 +79,28 @@ export default function Signup() {
             value={formState.password}
             onChange={handleChange}
             className="bg-transparent p-2 text-stone-100 text-lg border-b-2 border-stone-100 focus:bg-transparent"
-          >
-          </input>
-          {/* <TextField
-          margin="normal"
-          id="standard-basic"
-          label="PASSWORD"
-          type="password"
-          variant="standard"
-          
-        /> */}
+          ></input>
           <Button
             variant="text"
             id="loginButton"
+            type="submit"
             sx={{
               width: 200,
               fontFamily: "MenloRegular",
-              fontSize: 25,
+              fontSize: 20,
               color: "white",
+              cursor: "pointer",
             }}
           >
             -SIGN UP-
           </Button>
           {error ? (
-          <div>
-            <p className="text-xl text-red-500">INVALID CREDENTIALS</p>
-          </div>
-        ) : null}
-      </Stack>
+            <div>
+              <p className="text-2xl text-red-500">INVALID CREDENTIALS</p>
+            </div>
+          ) : null}
+        </Stack>
+      </form>
     </div>
   );
 }
