@@ -1,11 +1,11 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Player, PongScore, TicTacToeScore, TetrisScore } = require('../models')
+const { Player, PongScore, TicTacToeScore, TetrisScore, LightsOutScore } = require('../models')
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     allPlayers: async () => {
-      return Player.find().populate('pongScores').populate('ticTacToeScores').populate('tetrisScores');
+      return Player.find().populate('pongScores').populate('ticTacToeScores').populate('tetrisScores').populate('lightsOutScores');
     },
     player: async (parent, { _id }) => {
       return Player.findOne({ _id }).populate('pongScores').populate('ticTacToeScores');
@@ -18,6 +18,9 @@ const resolvers = {
     },
     allTetrisScores: async () => {
       return TetrisScore.find({}).sort({ createdAt: -1 }).populate('userId')
+    },
+    allLightsOutScores: async () => {
+      return LightsOutScore.find({}).sort({ createdAt: -1 }).populate('userId')
     },
     me: async (parent, args, context) => {
       if (context.player) {
@@ -117,6 +120,30 @@ const resolvers = {
           { 
             $addToSet: { 
               ticTacToeScores: newScore._id,
+            } 
+          }
+        );
+
+        return newScore;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    addLightsOutScore: async (parent, { userId, score }) => {
+      if (userId) {
+        const newScore = await LightsOutScore.create(
+          {
+            userId: userId,
+            lightsOutScoreValue: score
+          }
+        );
+
+        await Player.findOneAndUpdate(
+          { _id: userId },
+          { 
+            $addToSet: { 
+              lightsOutScores: newScore._id,
             } 
           }
         );
