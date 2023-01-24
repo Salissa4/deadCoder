@@ -4,6 +4,8 @@ import Board from './Board'
 import GameController from './GameController'
 import GameStats from './GameStats'
 import Previews from './Previews'
+import React from 'react'
+import Button from 'react'
 
 import { useBoard } from '../hooks/useBoard'
 import { useGameStats} from '../hooks/useGameStats'
