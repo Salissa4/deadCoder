@@ -45,17 +45,11 @@ export const ADD_TICTACTOE_SCORE = gql`
 `;
 
 export const ADD_PONG_SCORE = gql`
-  mutation AddPongScore($userId: ID!, $score: Int!) {
-    addPongScore(userId: $userId, score: $score) {
-      _id
-      pongScoreValue
-      createdAt
-      userId {
-        _id
-        username
-      }
-    }
+  mutation Mutation($userId: ID!, $score: Int!) {
+  addTetrisScore(userId: $userId, score: $score) {
+    tetrisScoreValue
   }
+}
 `;
 
 export const ADD_TETRIS_SCORE = gql`

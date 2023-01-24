@@ -53,7 +53,9 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     return { collided: isHit, nextPosition };
   };
   
-  const attemptMovement = ({ board, action, player, setPlayer, setGameOver }) => {
+  const attemptMovement = async({ board, action, player, setPlayer, setGameOver, addScore, randplayerID, gameStats }) => {
+
+
     const delta = { row: 0, column: 0 };
     let isFastDropping = false;
   
@@ -78,6 +80,7 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     // Did we collide immediately? If so, game over, man!
     const isGameOver = collided && player.position.row === 0;
     if (isGameOver) {
+      await addScore({ variables: { userId: randplayerID, score: gameStats.points }})
       setGameOver(isGameOver);
     }
   
@@ -94,13 +97,16 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     board,
     player,
     setPlayer,
-    setGameOver
+    setGameOver,
+    addScore,
+    randplayerID,
+    gameStats
   }) => {
     if (!action) return;
   
     if (action === Action.Rotate) {
       attemptRotation({ board, player, setPlayer });
     } else {
-      attemptMovement({ board, player, setPlayer, action, setGameOver });
+      attemptMovement({ board, player, setPlayer, action, setGameOver, addScore, randplayerID, gameStats });
     }
   };

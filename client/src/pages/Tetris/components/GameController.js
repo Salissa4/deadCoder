@@ -12,7 +12,9 @@ const GameController = ({
     gameStats,
     player,
     setGameOver,
-    setPlayer
+    setPlayer,
+    addScore,
+    randplayerID
   }) => {
     const [dropTime, pauseDropTime, resumeDropTime] = useDropTime({
       gameStats
@@ -53,7 +55,10 @@ const GameController = ({
           board,
           player,
           setPlayer,
-          setGameOver
+          setGameOver,
+          addScore,
+          randplayerID,
+          gameStats
         });
       };
     
