@@ -4,6 +4,11 @@
   list-style-type: none;
 }
 
+.buttontetris:hover{
+  cursor: pointer;
+  color: #D992B1
+}
+
 .GameStats__right {
   right: 5;
   bottom: 0;
