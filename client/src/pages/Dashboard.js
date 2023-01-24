@@ -1,12 +1,14 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_PLAYER, QUERY_ALL_PLAYERS} from "../utils/queries";
+import { QUERY_PLAYER, QUERY_ME} from "../utils/queries";
+import { Grid, Button } from "@mui/material";
+import Auth from "../utils/auth"
 
 export default function Dashboard() {
     //random player until we have login/sign-up working
-    const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
-    const allPlayers = allPlayersData.data?.allPlayers || [];
-    const randplayerID = allPlayers[0]?._id || []
+    const playerData = useQuery(QUERY_ME);
+    const players = playerData.data?.players || [];
+    const randplayerID = players[0]?._id || []
 
     const playerid = randplayerID;
     const { data } = useQuery(QUERY_PLAYER, { variables: { id: playerid }})
@@ -20,12 +22,11 @@ export default function Dashboard() {
     //const pongScores = rawPongScores.map((x)=>{ return x.pongScoreValue})
 
     return (
-        <div>
-            <br/>
-            Hello {username}, here are your HighScores
-            <br/><br/><br/>
-            Tetris:
-            <br/><br/>
+        <div className="pt-52">
+           <h2 className="text-xl"> Hello {username}, here are your HighScores:</h2>
+           <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={3}>
+            <h3>Tetris</h3>
             <ol>
                 {tetrisScores.map((score, index)=>{
                     return (
@@ -33,9 +34,9 @@ export default function Dashboard() {
                     )
                 })}
             </ol>
-            <br/><br/><br/>
-            <p>TicTacToe:</p>
-            <br/><br/>
+            </Grid>
+            <Grid item xs={3}>
+            <h3>TicTacToe</h3>
             <ol>
                 {ticTacToeScores.map((score, index)=>{
                     return (
@@ -43,6 +44,24 @@ export default function Dashboard() {
                     )
                 })}
             </ol>
+            </Grid>
+            </Grid>
+            <Button 
+            variant="text"
+            sx={{
+                width: 200,
+                fontFamily: "MenloRegular",
+                fontSize: 17,
+                color: 'white',
+                border: 0.5,
+                borderColor: '#929292', 
+                borderRadius: 0,
+                mt: 10
+                      }}
+            onClick={Auth.logout}
+            >
+                LOG OUT
+            </Button>
         </div>
     );
 }
