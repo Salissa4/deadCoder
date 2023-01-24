@@ -51,6 +51,33 @@ div.result{
   padding: 10px;
   
 }
+
+@media only screen and (max-width: 600px) {
+  div.square{
+    width: 90px;
+    height: 90px;
+    border: 0.5px solid #929292;
+    box-sizing: border-box;
+    font-size: 4rem;
+    text-align: center;
+  }
+  .stats{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 82px;
+}
+div.boardtictac{
+  display: grid;
+  border: 0.5px solid transparent;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding-top: 100px;
+  padding-left: 60px;
+}
+  
+  }
+
+
 /* div.result.green{
   background-color: #5a5;
 }
