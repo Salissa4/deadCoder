@@ -133,12 +133,6 @@ function App() {
 
   return (
     <main className='tictac'>
-      <Button  sx={{
-              width: 200,
-              fontFamily: "MenloRegular",
-              fontSize: 15,
-              color: "white",
-            }} href='/games'> GO BACK </Button>
       <Board>
         {squares.map((square,index) =>
           <Square
@@ -153,6 +147,11 @@ function App() {
         <div className='win'>WINS {winCount}</div>
         <div>LOSSES {loseCount}</div>
         <div className='tictacbutton' onClick={()=>endSession()}>SAVE SCORE AND PLAY AGAIN</div>
+        <Button  className= 'tictacbutton' sx={{
+              fontFamily: "MenloRegular",
+              fontSize: 15,
+              color: "white",
+            }} href='/games'> GO BACK </Button>
       </div>
       {!!winner && winner === 'x' && (
         <div className='tictacbody'>

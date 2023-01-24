@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.lightsbutton:hover{
+  cursor:pointer;
+  color: #D992B1
+}
 /* p{
   margin-bottom: 50%
 } */
