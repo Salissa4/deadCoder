@@ -3,9 +3,10 @@ import './CellLights.css';
 
 
 function Cell(props){
-    const { cellIndex, isOn, toggleLight } = props;
+    const { cellIndex, isOn, toggleLight, setClicks, clicks } = props;
 
     function handleToggleLight() {
+        setClicks(clicks+1)
         toggleLight(cellIndex);
 
     }

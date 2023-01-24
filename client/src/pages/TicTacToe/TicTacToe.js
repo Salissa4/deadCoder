@@ -27,7 +27,7 @@ function App() {
   const [winCount, setWinCount] = useState(0);
   const [loseCount, setLoseCount] = useState(0);
   const [score, setScore] = useState(0);
-  const [addScore, { error }] = useMutation(ADD_TICTACTOE_SCORE)
+  const [addScore] = useMutation(ADD_TICTACTOE_SCORE)
 
   useEffect(() => {
     const isComputerTurn = squares.filter(square => square !== null).length % 2 === 1;
