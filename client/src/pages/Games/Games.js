@@ -110,7 +110,7 @@ export default function Games (){
 
             <Grid item xs={3}>
             <Button variant= 'outlined' className= 'games' id='pong'>
-            <div>PONG</div>
+            <div>PONG - COMING SOON</div>
             </Button>
             <div className="pt-5 text-sm">
             HIGH SCORES
