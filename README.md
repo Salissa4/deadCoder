@@ -8,6 +8,7 @@ Welcome to deadCoder [ ded - koh - der ]. deadCoder is an app that allows you to
 - [Usage](#usage)
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
+- [Future Development](#future-development)
 - [Credits](#credits)
 - [Badges](#badges)
 - [Contribute](#how-to-contribute)
@@ -41,6 +42,13 @@ THEN am able to view Tetris, Lights Out, Pong or TicTacToe displaying highscores
 WHEN I click the game of my choice
 THEN I am able to play the game
 ```
+
+## Future Development
+
+- Upon login/sign up player must answer a question on either python, java, html, css or all to gain entry to games
+- Player may choose an avatar
+- Players may like their favorite games
+
 
 ## Credits 
 
