@@ -23,10 +23,11 @@
     "node": "16.18.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run build:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "tailwindcss -c ./tailwind.config.js -i src/input.css -o public/output.css"
   },
   "eslintConfig": {
     "extends": "react-app"
