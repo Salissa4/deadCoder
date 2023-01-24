@@ -1,6 +1,7 @@
 import './TicTacToe.css';
 import Board from "./BoardTicTacToe";
 import Square from "./Square";
+import { Button } from '@mui/material';
 import {useState, useEffect, } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ALL_PLAYERS } from '../../utils/queries';
@@ -132,6 +133,12 @@ function App() {
 
   return (
     <main className='tictac'>
+      <Button  sx={{
+              width: 200,
+              fontFamily: "MenloRegular",
+              fontSize: 15,
+              color: "white",
+            }} href='/games'> GO BACK </Button>
       <Board>
         {squares.map((square,index) =>
           <Square

@@ -2,6 +2,14 @@
   background-color: transparent;
   color:#fff;
 }
+img.emoji{
+  width:20px
+}
+
+.backbutt{
+  position: absolute;
+  color: whitesmokes
+}
 
 .stats{
   position: absolute;
@@ -28,7 +36,7 @@ div.boardtictac{
   border: 0.5px solid transparent;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  padding-top: 100px;
+  padding-top: 90px;
   padding-left: 470px;
 }
 
