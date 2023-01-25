@@ -1,9 +1,18 @@
+import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
+import { ADD_LIGHTS_OUT_SCORE } from "../../utils/mutations";
+import { QUERY_ALL_PLAYERS } from "../../utils/queries";
 import './BoardLights.css';
 import Cell from "./CellLights";
 
 
 function Board(props) {
+    const [clicks, setClicks] = useState(0);
+    const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
+    const allPlayers = allPlayersData.data?.allPlayers || [];
+    const randplayerID = allPlayers[0]?._id || []
+    const [addScore] = useMutation(ADD_LIGHTS_OUT_SCORE)
+
     const { size, chanceLightStartsOn } = props;
 
     /** randomLight: returns random boolean */
@@ -70,15 +79,35 @@ function Board(props) {
                             cellIndex={[rowIndex, colIndex].join("")} 
                             isOn={board.grid[rowIndex][colIndex]}
                             toggleLight={toggleAllLights}
+                            setClicks={setClicks}
+                            clicks={clicks}
                          />
                     ))}
                 </div>
             );
         });
+    
+    const handleReplay = async () => {
+        const scoredgame = await addScore({ variables: { userId: randplayerID, score: clicks }})
+        console.log(scoredgame)
+        //TODO: Reset board
+    }
+
+    const handleGoHome = async() => {
+        const scoredgame = await addScore({ variables: { userId: randplayerID, score: clicks }})
+        console.log(scoredgame)
+
+        //TODO: Route to homescreen
+    }
 
     return(
         <div className="BoardLights">
-           {hasWon() ? <div className="Board-hasWon">GO BACK</div> : gridDisplay }
+           {hasWon() ? 
+                    <div className="Board-hasWon">
+                        <button onClick={handleReplay}>Play Again?</button >
+                        <button onClick={handleGoHome}>Return to Home</button>
+                    </div> 
+                : gridDisplay }
         </div>
     )
 }
