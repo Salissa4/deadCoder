@@ -19,9 +19,7 @@ const lines = [
 
 function App() {
   //random player until we have login/sign-up working
-  const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
-  const allPlayers = allPlayersData.data?.allPlayers || [];
-  const randplayerID = allPlayers[0]?._id || []
+  const randplayerID = Auth.getProfile().data._id
 
   const [squares, setSquares] = useState(defaultSquares());
   const [winner,setWinner] = useState(null);
@@ -124,12 +122,7 @@ function App() {
   }
 
   async function endSession() {
-    //TODO: Send score to server
-    const scoredgame = await addScore({ variables: { userId: randplayerID, score: score }})
-    
-    console.log(scoredgame)
-    //TODO: Route back to homescreen
-
+    await addScore({ variables: { userId: randplayerID, score: score }})
   }
 
 if (Auth.loggedIn()) {
@@ -148,7 +141,12 @@ if (Auth.loggedIn()) {
       <div className='stats'>
         <div className='win'>WINS {winCount}</div>
         <div>LOSSES {loseCount}</div>
-        <div className='tictacbutton' onClick={()=>endSession()}>SAVE SCORE AND PLAY AGAIN</div>
+        <Button  className= 'tictacbutton' sx={{
+              fontFamily: "MenloRegular",
+              fontSize: 15,
+              color: "white",
+            }} href='/games' onClick={endSession}>SAVE SCORE AND GO BACK</Button>
+            <br/>
         <Button  className= 'tictacbutton' sx={{
               fontFamily: "MenloRegular",
               fontSize: 15,

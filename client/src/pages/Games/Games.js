@@ -43,9 +43,6 @@ export default function Games (){
     })
     const sortedLightsOutScores = lightsoutScores.sort(function(a,b){return b[1]-a[1]})
 
-    console.log(allLightsOutScores)
-    //console.log(sortedLightsOutScores)
-
     return (
         <>
         <Navbar />
@@ -103,14 +100,8 @@ export default function Games (){
             <div>PONG - COMING SOON</div>
             </Button>
             <div className="pt-5 text-sm">
-            HIGH SCORES
-                <ul className='list'>
-                    {sortedLightsOutScores.map( (x, index) => {
-                        return (
-                            <li key={index}>{x[0]} : {x[1]}</li>
-                        )
-                    })}
-                </ul>
+            HIGH SCORES <br/><br/>
+                COULD BE YOU!
             </div>
             </Grid>
         </Grid>

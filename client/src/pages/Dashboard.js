@@ -5,15 +5,9 @@ import { Grid, Button } from "@mui/material";
 import Auth from "../utils/auth";
 
 export default function Dashboard() {
-  //random player until we have login/sign-up working
-  const playerData = useQuery(QUERY_ME);
-  const players = playerData.data?.players || [];
-  const randplayerID = players[0]?._id || [];
-
-  const playerid = randplayerID;
+  const playerid = Auth.getProfile().data._id;
   const { data } = useQuery(QUERY_PLAYER, { variables: { id: playerid } });
   const username = data?.player.username || "";
-  console.log(username);
   const rawTetrisScores = data?.player.tetrisScores || [];
   //const rawPongScores = data?.player.pongScores || []
   const rawTicTacToeScores = data?.player.ticTacToeScores || [];

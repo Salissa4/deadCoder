@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
+import Auth from "../../utils/auth";
 import { ADD_LIGHTS_OUT_SCORE } from "../../utils/mutations";
 import { QUERY_ALL_PLAYERS } from "../../utils/queries";
 import './BoardLights.css';
@@ -8,9 +9,7 @@ import Cell from "./CellLights";
 
 function Board(props) {
     const [clicks, setClicks] = useState(0);
-    const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
-    const allPlayers = allPlayersData.data?.allPlayers || [];
-    const randplayerID = allPlayers[0]?._id || []
+    const randplayerID = Auth.getProfile().data._id
     const [addScore] = useMutation(ADD_LIGHTS_OUT_SCORE)
 
     const { size, chanceLightStartsOn } = props;
