@@ -5,7 +5,8 @@ export default function randomUsernames(firstNames, lastNames) {
   return userName
 }
 
-const firstNames = [
+export const firstNames = [
+  "Dry Bones",
   "Mario",
   "Luigi",
   "Princess Peach",
@@ -62,7 +63,7 @@ const firstNames = [
   "Twintelle",
 ];
 
-const lastNames= [
+export const lastNames= [
   " Cutter",
   " Carpenter",
   " Clipper",

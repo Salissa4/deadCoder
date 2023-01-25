@@ -3,7 +3,7 @@ import { TextField, Typography, Stack, Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_PLAYER } from "../utils/mutations";
 import Auth from "../utils/auth";
-//import randomUsernames from "../assets/Login/RandomUsernames";
+import randomUsernames, {firstNames, lastNames} from '../assets/login/RandomUsernames';
 
 
 export default function Signup() {
@@ -11,6 +11,8 @@ export default function Signup() {
     username: "",
     password: "",
   });
+  const [randomName, setRandomName] = useState('')
+  const newRandomName = randomUsernames(firstNames, lastNames)
   const [addPlayer, { error, data }] = useMutation(ADD_PLAYER);
 
   const handleChange = (event) => {
@@ -21,6 +23,8 @@ export default function Signup() {
       [name]: value,
     });
   };
+
+
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -96,6 +100,29 @@ export default function Signup() {
           >
             -SIGN UP-
           </Button>
+
+          <p>
+            -OR-
+          </p>
+
+          <Button
+            variant='text'
+            id='randomGenerateButton'
+            type='button'
+            sx={{
+              width: 200,
+              fontFamily: 'MenloRegular',
+              fontSize: 17,
+              color: 'white',
+              cursor: 'pointer'
+            }}
+            onClick={() => {
+              setRandomName(`${newRandomName}`)
+            }}
+            >
+              -GENERATE RANDOM USERNAME-
+            </Button>
+            <p>{randomName}</p>
           {error ? (
             <div>
               <p className="text-xl text-red-500">INVALID CREDENTIALS</p>
