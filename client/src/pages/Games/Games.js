@@ -49,68 +49,68 @@ export default function Games (){
     return (
         <>
         <Navbar />
-        <Grid container spacing={2} className="pt-52">  
-            <Grid item xs={3} >
+        <Grid container spacing={2} className="pt-40">  
+            <Grid item xs={12} md={3} >
             <Button variant= 'outlined' className= 'games' id='tetris' href='/games/tetris'> 
             <div>TETRIS</div>
             </Button>
             <div className="pt-5 text-sm">
             HIGH SCORES
-                <ol>
+                <ul className='list'>
                     {sortedTetrisScores.map( (x, index) => {
                         return (
                             <li key={index}>{x[0]} : {x[1]}</li>
                         )
                     })}
-                </ol>
+                </ul>
             </div>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={12} md={3}>
             <Button variant= 'outlined' className= 'games' id='tictactoe' href='games/tictactoe'> 
             <div>TICTACTOE</div>
             </Button>
             <div className="pt-5 text-sm">
             HIGH SCORES
-                <ol>
+                <ul className='list'>
                     {sortedTicTacToeScores.map( (x, index) => {
                         return (
                             <li key={index}>{x[0]} : {x[1]}</li>
                         )
                     })}
-                </ol>
+                </ul>
             </div>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={12} md={3}>
             <Button variant= 'outlined' className= 'games' id='lights' href='/games/lights-out'>
             <div>Lights-Out</div>
             </Button>
             <div className="pt-5 text-sm">
             HIGH SCORES
-                <ol>
+                <ul className='list'>
                     {sortedLightsOutScores.map( (x, index) => {
                         return (
                             <li key={index}>{x[0]} : {x[1]}</li>
                         )
                     })}
-                </ol>
+                </ul>
             </div>
             </Grid>
 
-            <Grid item xs={3}>
+            <Grid item xs={12} md={3}>
             <Button variant= 'outlined' className= 'games' id='pong'>
             <div>PONG - COMING SOON</div>
             </Button>
             <div className="pt-5 text-sm">
             HIGH SCORES
-                <ol>
+                <ul className='list'>
                     {sortedLightsOutScores.map( (x, index) => {
                         return (
                             <li key={index}>{x[0]} : {x[1]}</li>
                         )
                     })}
-                </ol>
+                </ul>
             </div>
             </Grid>
         </Grid>
