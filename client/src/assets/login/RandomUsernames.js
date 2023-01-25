@@ -5,6 +5,7 @@ export default function randomUsernames(firstNames, lastNames) {
   return userName
 }
 
+//added export to array of names
 export const firstNames = [
   "Dry Bones",
   "Mario",

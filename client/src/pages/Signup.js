@@ -122,6 +122,7 @@ export default function Signup() {
             >
               -GENERATE RANDOM USERNAME-
             </Button>
+            {/* new username generators below the button */}
             <p>{randomName}</p>
           {error ? (
             <div>
