@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_PLAYER, QUERY_ME } from "../utils/queries";
+import { QUERY_PLAYER } from "../utils/queries";
 import { Grid, Button } from "@mui/material";
 import Auth from "../utils/auth";
 

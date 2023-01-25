@@ -3,8 +3,7 @@ import Board from "./BoardTicTacToe";
 import Square from "./Square";
 import { Button } from '@mui/material';
 import {useState, useEffect, } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ALL_PLAYERS } from '../../utils/queries';
+import { useMutation } from '@apollo/client';
 import { ADD_TICTACTOE_SCORE } from '../../utils/mutations';
 import Auth from "../../utils/auth";
 
