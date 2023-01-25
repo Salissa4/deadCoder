@@ -1,6 +1,10 @@
 /* .games{
     margin-left: 120px;
 } */
+.list{
+    list-style: none;
+    text-align: left;
+}
 
 p {
     margin-bottom: 0;
@@ -46,3 +50,25 @@ p {
     border-color: #929292;
     /* margin: 10px; */
 }
+
+/* @media only screen and (max-width: 600px) {
+    #tetris{
+        width: 240px;
+        height: 240px;
+    }
+
+    #tictactoe{
+        width: 240px;
+        height: 240px;
+    }
+
+    #lights{
+        width: 240px;
+        height: 240px;
+    }
+
+    #pong{
+        width: 240px;
+        height: 240px;
+    }
+} */
