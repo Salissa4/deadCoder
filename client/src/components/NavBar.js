@@ -1,30 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Avatar } from '@mui/material';
-import { useMutation } from '@apollo/client';
+import { Avatar, Button, Stack } from '@mui/material';
 import Auth from '../utils/auth';
-import { QUERY_ME } from '../utils/queries';
+import fishBones from "../assets/Avatars/Fish bones.png";
 
 const Navbar = () => {
 
     return (
-        <nav className='w-full bg-transparent fixed py-4 top-0 left-0 right-0 text-stone-100'>
-            <div>
-                <h2>deadCoder</h2>
-            </div>
-            {Auth.loggedIn() ? (
-                <>
-                <Link className="font-semibold" to="/dashbaord">
-                    {Auth.getProfile().data.username}
-                </Link>
+        <nav>
+            <div className='mx-w-6xl mx-auto px-10 py-10'>
+            <div className='flex justify-between'>
+             <Stack        
+                direction="row"
+                justifyContent="flex-end"
+                spacing={4}
+                >
+
                 <Avatar
                 alt="avatar"
-                src={Auth.getProfile.data.avatar}
-                />
-                </>
-            ): (
+                src={fishBones}
+                sx={{width:50,
+                     height: 50,
+                    }}
+                /> 
+                {Auth.loggedIn() ? (
+             <div>
+                <Link className="text-lg" to="/dashboard">
+                    {Auth.getProfile().data.username}
+                </Link>
+                 <Button
+                variant="text"
+                onClick={Auth.logout}
+                sx={{
+                    width: 100,
+                    fontFamily: "MenloRegular",
+                    fontSize: 15,
+                    color: 'white',
+                    m: 0.5
+                          }}
+                >
+                    LOG OUT
+                </Button>
+                </div>
+                 
+             ): (
                 null
-            )}
+             )}
+            </Stack>
+            
+            </div>
+            </div>
         </nav>
     )
 

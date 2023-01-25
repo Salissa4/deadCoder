@@ -13,6 +13,7 @@ export default function Dashboard() {
     const playerid = randplayerID;
     const { data } = useQuery(QUERY_PLAYER, { variables: { id: playerid }})
     const username = data?.player.username || ""
+    console.log(username);
     const rawTetrisScores = data?.player.tetrisScores || []
     //const rawPongScores = data?.player.pongScores || []
     const rawTicTacToeScores = data?.player.ticTacToeScores || []
@@ -46,6 +47,7 @@ export default function Dashboard() {
             </ol>
             </Grid>
             </Grid>
+            <div className="w-1/3 flex justify-between">
             <Button 
             variant="text"
             sx={{
@@ -56,12 +58,29 @@ export default function Dashboard() {
                 border: 0.5,
                 borderColor: '#929292', 
                 borderRadius: 0,
-                mt: 10
+                margin: 10,
                       }}
             onClick={Auth.logout}
             >
                 LOG OUT
             </Button>
+            <Button 
+            variant="text"
+            sx={{
+                width: 200,
+                fontFamily: "MenloRegular",
+                fontSize: 17,
+                color: 'white',
+                border: 0.5,
+                borderColor: '#929292', 
+                borderRadius: 0,
+                margin: 10
+                      }}
+            href='/games'
+            >
+                GO BACK
+            </Button>
+            </div>
         </div>
     );
 }
