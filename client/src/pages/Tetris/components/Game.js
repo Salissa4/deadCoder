@@ -5,12 +5,11 @@ import { useGameOver } from '../hooks/useGameOver';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ALL_PLAYERS } from '../../../utils/queries';
 import { ADD_TETRIS_SCORE } from '../../../utils/mutations'
+import Auth from '../../../utils/auth';
 
 const Game = ({ rows, columns }) => {
-    //getting a random player
-    const allPlayersData = useQuery(QUERY_ALL_PLAYERS);
-    const allPlayers = allPlayersData.data?.allPlayers || [];
-    const randplayerID = allPlayers[0]?._id || [];
+    //getting a player - called randplayerID due to legacy issues
+    const randplayerID = Auth.getProfile().data._id;
 
     //tetris-scoring mutation
     const [addScore, { error }] = useMutation(ADD_TETRIS_SCORE)
