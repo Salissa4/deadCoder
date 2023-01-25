@@ -80,7 +80,7 @@ const attemptRotation = ({ board, player, setPlayer }) => {
     // Did we collide immediately? If so, game over, man!
     const isGameOver = collided && player.position.row === 0;
     if (isGameOver) {
-      await addScore({ variables: { userId: randplayerID, score: gameStats.points }})
+      addScore({ variables: { userId: randplayerID, score: gameStats.points }})
       setGameOver(isGameOver);
     }
   

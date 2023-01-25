@@ -2,8 +2,7 @@ import Menu from './Menu'
 import Tetris from './TetrisGame';
 
 import { useGameOver } from '../hooks/useGameOver';
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ALL_PLAYERS } from '../../../utils/queries';
+import { useMutation } from '@apollo/client';
 import { ADD_TETRIS_SCORE } from '../../../utils/mutations'
 import Auth from '../../../utils/auth';
 
