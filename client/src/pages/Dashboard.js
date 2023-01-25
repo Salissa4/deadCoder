@@ -55,7 +55,7 @@ export default function Dashboard() {
             </ol>
           </Grid>
         </Grid>
-        <div className="w-1/3 flex justify-between">
+        <div>
           <Button
             variant="text"
             sx={{
