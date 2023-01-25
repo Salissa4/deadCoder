@@ -2,8 +2,10 @@
 import './lightsOut.css';
 import Board from './BoardLights';
 import { Button } from '@mui/material';
+import Auth from "../../utils/auth";
 
 function Lights() {
+  if (Auth.loggedIn()) {
   return (
     <div className="AppLights">
       <Board size={5} chanceLightStartsOn={0.25} />
@@ -16,6 +18,9 @@ function Lights() {
             }} href='/games'> GO BACK </Button>
     </div>
   );
+} else {
+  return window.location.assign("/");
+}
 }
 
 export default Lights;
