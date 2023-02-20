@@ -9,6 +9,7 @@ import Tetris from "./pages/Tetris/Tetris";
 import Avatars from "./pages/Avatars/Avatars";
 import Lights from "./pages/LightsOut/lightsOut";
 import TicTacToe from "./pages/TicTacToe/TicTacToe";
+import Pong from "./pages/Pong/Pong";
 import Dashboard from "./pages/Dashboard";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -58,6 +59,7 @@ function App() {
           <Route path="/games/tetris" element={<Tetris />} />
           <Route path="/games/lights-out" element={<Lights />} />
           <Route path="/games/tictactoe" element={<TicTacToe />} />
+          <Route path="/games/pong" element={<Pong />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
