@@ -32,13 +32,13 @@ const outer = {
 const dividerStyle = {
   marginLeft: "50px",
   fontSize: "50px",
-  color: "white"
+  color: "gray"
 }
 
 const score = {
   marginLeft: "100px",
   fontSize: "50px",
-  color: "white"
+  color: "gray"
 }
 const style = {
     width: "250px",
