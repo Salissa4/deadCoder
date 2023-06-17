@@ -16,7 +16,7 @@ Welcome to deadCoder [ ded - koh - der ]. deadCoder is an app that allows you to
 
 ## Usage
 
-- View on [Heroku]()
+- View on [Heroku](https://deadcoder-db1047388a9e.herokuapp.com/)
 ![deadCoder](/client/src/assets/Demo/demo.png)  
 
 ## User Story
